@@ -1,0 +1,177 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="container">
+<div class="wall center-block">
+<div class="row">
+
+<div class="col-xs-9 col-xs-push-2 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-sm-push-1 col-md-3 col-md-push-0" >
+<div class="panel panel-default" style="height:350px; background-color:#FF8F00; max-width:350px; min-width:200px;">
+<div class="panel-heading" >حساب طلایی</div>
+<div class="panel-body" >
+<div class="row">
+<p style="color:black">
+کلیه امکانات حساب نقره ای<br>
+با جزئیات بیشتر در سوابق <br>
++ <br>
+حسابداری شخصی استاندارد <br><br>
+<font color="red">ماهانه ۲۰ هزار تومان</font>	
+</p>
+</div>
+{% if user.acount_type != 'gold' %}
+<div class="row"><a href="/ac/gold/" class="btn btn-danger" >خرید</a></div>
+{% else %}
+<div class="row"><a href="#" class="btn btn-danger" disabled>فعال</a></div>
+{% endif %}
+</div>
+</div>
+</div>
+
+<!--  -->
+
+
+<div class="col-xs-9 col-xs-push-2 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-sm-push-1 col-md-3 col-md-push-0">
+<div class="panel panel-default" style="height:350px; background-color:#FFC107; max-width:350px; min-width:200px; ">
+<div class="panel-heading" >حساب نقره ای</div>
+<div class="panel-body">
+<div class="row">
+<p style="color:black">
+کلیه امکانات حساب برنزی<br>
++ <br>
+مشاهده ی جزییات - شهر و<br>
+صنف - هنگام استعلام سوابق<br><br>
+<font color="red">ماهانه ۱۰ هزار تومان</font>
+</p>
+</div>
+{% if user.acount_type == 'gold' %}
+<div class="row"><a href="#" class="btn btn-danger" disabled></a></div>
+{% elif user.acount_type == 'silver' %}
+<div class="row"><a href="#" class="btn btn-danger" disabled>فعال</a></div>
+{% else %}
+<div class="row"><a href="/ac/silver/" class="btn btn-danger" >خرید</a></div>
+{% endif %}
+</div>
+</div>
+</div>
+
+<!--  -->
+
+<div class="col-xs-9 col-xs-push-2 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-sm-push-1 col-md-3 col-md-push-0">
+<div class="panel panel-default" style="height:350px; background-color:#FFD54F; max-width:350px; min-width:200px;">
+<div class="panel-heading" >حساب برنزی</div>
+<div class="panel-body">
+<div class="row">
+<p style="color:black">
+کلیه امکانات حساب عادی<br>
++ <br>
+اپلیکیشن موبایل <br>
+آنلاین و آفلاین<br>
+<br>
+<font color="red">ماهانه ۵ هزار تومان</font>
+</p>
+</div>
+{% if user.acount_type == 'base' %}
+<div class="row"><a href="/ac/bronze/" class="btn btn-danger" >خرید</a></div>
+{% elif user.acount_type == 'bronze' %}
+<div class="row"><a href="#" class="btn btn-danger" disabled>فعال</a></div>
+{% else %}
+<div class="row"><a href="#" class="btn btn-danger" disabled></a></div>
+{% endif %}
+</div>
+</div>
+</div>
+
+<!--  -->
+
+<div class="col-xs-9 col-xs-push-2 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-sm-push-1 col-md-3 col-md-push-0">
+<div class="panel panel-default" style="height:350px; background-color:#FFECB3; max-width:350px; min-width:200px;">
+<div class="panel-heading" >حساب عادی</div>
+<div class="panel-body">
+<div class="row">
+<p style="color:black">
+ثبت سوابق بدهی مشتریان بدون محدودیت<br>
++ <br>
+«استعلام بدون نیاز به اینترنت» <br><br>
+<font color="red">رایگان</font>
+</p>		
+</div>
+{% if user.acount_type == 'base' %}
+<div class="row"><a href="#" class="btn btn-danger" disabled>فعال</a></div>
+{% else %}
+<div class="row"><a href="#" class="btn btn-danger" disabled></a></div>
+{% endif %}
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row"><a href="/" class="btn btn-danger" >بازگشت</a></div>
+
+</div>
+
+
+<!--  -->
+<!--  -->
+
+
+<!-- 	<div id="buy_section" >
+		
+		<section style="background-color:#FF8F00; " >
+			<h3>حساب طلایی</h3>
+			<pre style="background:#FF8F00;" >
+				کلیه امکانات حساب نقره ای
+				+
+				حسابداری شخصی استاندارد
+
+				<font color="red">ماهانه ۲۰ هزار تومان</font>
+			</pre>
+			<a href="/ac/gold/" class="btn btn-danger" >خرید</a>
+		</section>
+
+		<section style="background-color:#FFC107;" >
+			<h3>حساب برنزی</h3>
+			<pre style="background:#FFC107 ;" >
+				کلیه امکانات حساب نقره ای
+				+
+				مشاهده ی جزییات - شهر و 
+				صنف - هنگام استعلام سوابق
+
+				<font color="red" >ماهانه ۱۰ هزار تومان</font>
+			</pre>
+			<a href="/ac/bronze/" class="btn btn-danger" >خرید</a>
+		</section>
+	
+		<section style="background-color:#FFD54F;" >
+			<h3>حساب نقره ای</h3>
+			<pre style="background:#FFD54F ;" >
+				کلیه امکانات حساب عادی
+				+
+				اپلیکیشن موبایل
+				<font color="red" >ماهانه ۵ هزار تومان</font>
+			</pre>
+			<a href="/ac/silver/" class="btn btn-danger" >خرید</a>
+		</section>
+		
+		<section style="background-color:#FFECB3;" >
+			<h3>حساب عادی</h3>
+			<pre style="background:#FFECB3 ;" >
+				ثبت سوابق بدهی مشتریان بدون محدودیت
+				+
+				استعلام سوابق به صورت آفلاین
+				«بدون نیاز به اینترنت» 
+				<font color="red">رایگان</font>
+			</pre>
+			<button class="btn btn-danger" disabled>فعال</button>
+		</section>
+	
+	</div>
+
+	<a href="/" class="btn btn-danger" >بازگشت</a>
+
+</center>
+
+<br><br><br><br> -->
+{% endblock %}

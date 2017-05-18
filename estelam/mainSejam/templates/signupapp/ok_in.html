@@ -1,0 +1,56 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-push-3">
+            {% if from == 'scr' %}
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white; color: limegreen;">{{message.part1}}</pre>
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white">{{message.part2}}</pre>
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white; color: red;">{{message.part3}}</pre>
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white; color: rebeccapurple;">{{message.part4}}</pre>
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white; color: indianred;">{{message.part5}}</pre>
+            <pre class="alert alert-danger alert-lg" dir="rtl" style="background-color: white; color: rebeccapurple;">{{message.part6}}</pre>
+            {% else %}
+            <pre class="alert alert-danger alert-lg" dir="rtl">{{message}}</pre>
+            {% endif %}
+        </div>
+    </div>
+
+<div class="row">
+{% if from == 'loggedin_signup' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'rac' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+    <a href="/gcin" class="btn btn-danger" tabindex="1">ثبت گزارش</a>
+{% elif from == 'rar' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_scr' %}
+    <a href="/racfs" class="btn btn-danger" tabindex="2">ثبت کاربر جدید</a>
+    <a href="/sac" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'scr' %}
+    <a href="/sac" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_er' %}
+    <a href="/srr" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_rr' %}
+    <a href="/srr" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'empty_gcn' %}
+	<a href="/racnifg/" class="btn btn-danger" tabindex="2">ثبت کاربر جدید</a>
+	<a href="/gcin/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'empty_scrn' %}
+    <a href="/racnifg/" class="btn btn-danger" tabindex="2">ثبت کاربر جدید</a>
+	<a href="/sac" tabindex="1" class="btn btn-danger">بازگشت</a>
+{% elif from == 'bad_cip' %}
+	<a href="/uprofile/cip" tabindex="1" class="btn btn-danger">بازگشت</a>
+{% elif from == 'in_use_rdd' %}
+	<a href="/uprofile/add" tabindex="1" class="btn btn-danger">بازگشت</a>
+{% else %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}

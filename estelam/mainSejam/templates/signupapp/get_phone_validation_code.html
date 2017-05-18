@@ -1,0 +1,29 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+
+<div class="container">
+<div class="panel panel-primary center-block" style="max-width:500px">
+<div class="panel-heading heading-style" >تایید شماره موبایل</div>
+<div class="panel-body" style="background-color:rgb(50,100,200)" >
+
+<form class="form-harizontal" action="/uprofile/vumn/" method="post" >
+	{% csrf_token %}
+
+	<div class="form-group form-inline" dir="rtl">
+		<label style="padding-bottom:10px" class="control-label">لطفا کد تایید اس ام اس شده را وارد کنید</label>
+		<input type="textbox" name="validation_code" class="form-control center-block size-xs" placeholder="کد ۴ رقمی" required>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-danger" >تایید</button>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

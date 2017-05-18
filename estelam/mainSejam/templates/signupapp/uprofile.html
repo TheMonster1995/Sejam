@@ -1,0 +1,208 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="container">
+<div class="panel panel-primary" style="background-color:rgb(50,50,200)">
+<div class="panel-heading text-center" style="color:yellow; font-size:50px;">حساب کاربری</div>
+<div class="panel-body">
+<div class="row" id="table" >
+		<div class="col-xs-9">
+		<div class="panel panel-default" >
+			<div class="panel-heading text-right" >گزارشات ثبت شده توسط شما</div>
+				<div class="panel-body" style="color:black">
+				<div class="table-responsive" style=" height:200px; overflow:auto">
+				<table class="table table-striped">
+					<thead>
+						<th class="table-cell-c warning"></th>
+						<th class="table-cell-c warning"></th>
+						<th class="table-cell-c warning">ت تسویه</th>
+						<th class="table-cell-c warning">موعد</th>
+						<th class="table-cell-c warning">شروع</th>
+						<th class="table-cell-c warning">نوع</th>
+						<th class="table-cell-c warning">مقدار</th>
+						<th class="table-cell-c warning">فامیل</th>
+						<th class="table-cell-c warning">نام</th>
+						<th class="table-cell-c warning">شماره ملی</th>
+					</thead>
+					{% for record in rrs %}
+					<tr>
+						<td class="table-cell-c"><a href="/rr/{{record.record_link}}/" class="heading-c">حذف</a></td>
+						<td class="table-cell-c"><a href="/er/{{record.record_link}}/" class="heading-c">ویرایش</a></td>
+						{% if record.debt_cleared == False %}
+						<td class="table-cell-c">نشده</td>
+						{% else %}
+						<td class="table-cell-c">{{ record.debt_clearance_date|date:"Y/m/d" }}</td>
+						{% endif %}
+						<td class="table-cell-c">{{ record.debt_due_date|date:"Y/m/d" }}</td>
+						<td class="table-cell-c">{{ record.debt_start_date|date:"Y/m/d" }}</td>
+						{% if record.debt_kind == 'normal' %}
+						<td class="table-cell-c">عادی</td>
+						{% else %}
+						<td class="table-cell-c">سررسید شده</td>
+						{% endif %}
+						<td class="table-cell-c">{{ record.debt_amount }}</td>
+						<td class="table-cell-c">{{ record.customer_last_name }}</td>
+						<td class="table-cell-c">{{ record.customer_first_name }}</td>
+						<td class="table-cell-c">{{ record.customer_id_num }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				</div>
+			</div>
+			</div>
+
+			
+			<div class="panel panel-default">
+				<div class="panel-heading text-right">مشتریان ثبت شده توسط شما</div>
+				<div class="panel-body" style="color:black">
+				<div class="table-responsive" style=" height:200px; overflow:auto">
+				<table class="table table-striped">
+					<thead>
+						<th class="table-cell-c warning"></th>
+						<th class="table-cell-c warning" style="font-size: 7px;">کد ملی خویشاوند</th>
+						<th class="table-cell-c warning">خویشاوند</th>
+						<th class="table-cell-c warning">شغل</th>
+						<th class="table-cell-c warning">شهرستان</th>
+						<th class="table-cell-c warning">استان</th>
+						<th class="table-cell-c warning">جنسیت</th>
+						<th class="table-cell-c warning">نام پدر</th>
+						<th class="table-cell-c warning" style="font-size: 10px;">فامیل</th>
+						<th class="table-cell-c warning">نام</th>
+						<th class="table-cell-c warning">شماره ملی</th>
+					</thead>
+					{% for customer in rcs %}
+					<tr>
+						<td class="table-cell-c"><a href="/ec/{{customer.customer_link}}/" class="heading-c">ویرایش</a></td>
+						<td class="table-cell-c">{{ customer.relative_id_num }}</td>
+						<td class="table-cell-c">{{ customer.relativity }}</td>
+						<td class="table-cell-c">{{ customer.job }}</td>
+						<td class="table-cell-c">{{ customer.city }}</td>
+						<td class="table-cell-c">{{ customer.state }}</td>
+						{% if customer.gender == 'male' %}
+						<td class="table-cell-c">مرد</td>
+						{% else %}
+						<td class="table-cell-c">زن</td>
+						{% endif %}
+						<td class="table-cell-c">{{ customer.father_name }}</td>
+						<td class="table-cell-c">{{ customer.last_name }}</td>
+						<td class="table-cell-c">{{ customer.first_name }}</td>
+						<td class="table-cell-c">{{ customer.id_num }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				</div>
+			</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading text-right">اطلاعات حساب کاربری شما</div>
+					<div class="panel-body" style="color:black">
+					<div class="table-responsive" style=" height:200px; overflow:auto">
+				<table class="table" >
+					<tr>
+						<td colspan="4" align="center" class="table-cell-c" style="font-weight:bold" >{{user.id}}   شماره پرونده</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{jobcategory}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">رسته شغلی</td>
+						<td class="table-cell-c">{{user.first_name}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">نام</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{union}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">اتحادیه</td>
+						<td class="table-cell-c">{{user.last_name}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">فامیل</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{user.business_license_num}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">شماره جواز کسب</td>
+						<td class="table-cell-c">{{user.father_name}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">نام پدر</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{user.business_license_due_date|date:"Y/m/d"}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">تاریخ اعتبار جواز کسب</td>
+						<td class="table-cell-c">{{user.id_num}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">کد ملی</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{user.brand}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">نام تجاری</td>
+						<td class="table-cell-c">{{user.birthday|date:"Y/m/d"}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">تاریخ تولد</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c" style="color: greenyellow;">{{user.email}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">پست الکترونیکی</td>
+						<td class="table-cell-c">{{user.phone}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">تلفن</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{user.username}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">نام کاربری</td>
+						<td class="table-cell-c" style=" {% if user.mobile_is_varified == True %} color: greenyellow; {% else %} color: red;{% endif %}">{{user.mobile}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold;">تلفن همراه</td>
+					</tr>
+					<tr>
+						<td class="table-cell-c">{{user.registered_records_num}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">تعداد گزارشات ثبت شده</td>
+						<td class="table-cell-c">{{user.fax}}</td>
+						<td class="table-cell-c warning" style="font-weight:bold">فکس</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+			</div>	
+
+			</div>
+		
+			
+		<div class="col-xs-3 pull-right">
+		<div class="list-group">
+
+							<a href="/sac/" class="list-group-item" style="color:black">جست و جو</a>
+				
+					<a href="/rac/" class="list-group-item" style="color:black" >ثبت مشتری</a>
+				
+					<a href="/rar/" class="list-group-item" style="color:black">ثبت گزارش جدید</a>
+				
+					<a href="/uprofile/add" class="list-group-item" style="color:black">تعریف نوع جدید سند بدهکاری</a>
+				
+					{% if user.is_complete == 0 %}
+				
+					<a href="/uprofile/cip/" class="list-group-item" style="color:black">تکمیل اطلاعات</a>
+				
+					{% endif %}
+					{% if user.is_complete == 1 %}
+				
+					<a href="/uprofile/edit/" class="list-group-item" style="color:black">تغییر اطلاعات</a>
+				
+					{% endif %}
+				
+					<a href="/au" class="list-group-item" style="color:black">ارتقاء حساب</a>
+
+                    <a href="/newpass/{{user.user_pass_reset_link}}" class="list-group-item" style="color:black">تغییر رمز عبور</a>
+				
+			
+			</div>
+			</div>
+
+			</div>
+			</div>
+
+			<div class="row">
+			<div class="row">
+			<h4 style="color:rgb(255, 0, 0);" align="center" >توجه: آپدیت و جایگزینی برخی از فیلد‌ها نیاز به تایید مدیریت سایت دارند</h4>
+			</div>
+				<div class="row" >
+				<a href="/" align="center" class="btn btn-danger">بازگشت</a> 
+				</div>
+			</div>
+
+			</div>
+			</div>
+			</div>
+
+{% endblock %}

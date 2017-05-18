@@ -1,0 +1,79 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+<div class="container" style="color:yellow">
+<div class="panel panel-primary center-block" style="max-width:500px;">
+<div class="panel-heading text-center" style="font-size:30px; ">تکمیل اطلاعات حساب بانکی</div>
+<div class="panel-body" style="background-color:rgb(50,100,200)">
+
+<form class="form-harizontal" action="/uprofile/cib/" method="post" >
+{% csrf_token %}
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">نام بانک</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="نام بانک" data-placement="left" name="b_name">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">نام شعبه</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="نام شعبه" data-placement="left" name="b_branch_name">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">کد شعبه</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="کد شعبه" data-placement="left" name="b_branch_code">
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">شماره حساب</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="شماره حساب" data-placement="left" name="b_acount_num">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">شماره کارت</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="شماره کارت" data-placement="left" name="b_card_num">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<label class="col-xs-3 col-ms-3 pull-right control-label">شماره شبا</label>
+			<div class="col-xs-10 col-ms-5 pull-right">
+				<input type="text" class="form-control text-center" placeholder="شماره شبا" data-placement="left" name="b_sheba_num">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<button type="submit" class="btn btn-danger" >ثبت</button>
+		</div>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+

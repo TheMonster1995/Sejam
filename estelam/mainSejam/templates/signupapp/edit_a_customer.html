@@ -1,0 +1,177 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="section-title">
+<h1 style="color:rgb(30, 255, 4); padding-top: 5%;">تغییر مشتری ثبت شده</h1>
+</div>
+<div class="panel-body" style="color: red;">{{error_message}}</div>
+
+<br><br>
+{% if session.ecEarlierFill == False %}
+<form action="/ec/{{customer.customer_link}}/" method="post">
+    {% csrf_token %}
+	<table width="100%" align="center">
+		<tr>
+			<td align="left">
+				<input type="textbox" name="last_name" class="input-c" value="{{customer.last_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="last_name" class="heading bold heading-c">نام خانوادگی مشتری</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="first_name" class="input-c" value="{{customer.first_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="first_name" class="heading bold heading-c">نام مشتری</label>
+			</td>
+		</tr>
+			<td align="left">
+				{% if customer.id_num == 0 %}
+				<input type="number" name="id_num" class="input-c" value="{{customer.id_num}}" tabindex="2" min="0">
+				{% else %}
+				<input type="number" name="id_num" class="input-c" value="{{customer.id_num}}" readonly>
+				{% endif %}
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="id_num" class="heading bold heading-c">کد ملی</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="father_name" class="input-c" value="{{customer.father_name}}" tabindex="1">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="father_name" class="heading bold heading-c">نام پدر</label>
+			</td>
+		<tr>
+			<td align="left">
+				<input type="textbox" name="job" class="input-c" value="{{customer.job}}" tabindex="4">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="job" class="heading bold heading-c">شغل</label>
+			</td>
+			<td align="left">
+				<select name="gender" class="input-c" tabindex="3">
+					<option value="male" class="input-c" selected>مرد</option>
+					<option value="female" class="input-c" >زن</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="gender" class="heading bold heading-c">جنسیت</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="number" name="relative_id_num" class="input-c" value="{{customer.relative_id_num}}" tabindex="6" min="0">
+			</td>
+			<td align="right" valign="top">
+				<label for="relative_id_num" class="heading bold heading-c">کد ملی خویشاوند</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="relativity" class="input-c" value="{{customer.relativity}}" tabindex="5">
+			</td>
+			<td align="right" valign="top">
+				<label for="relativity" class="heading bold heading-c">خویشاوند</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td align="left">
+				<input type="textbox" name="about" class="input-c" value="{{customer.about}}" tabindex="7">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="about" class="heading bold heading-c">ملاحظات</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<input type="submit" value="ثبت" class="btn btn-danger" tabindex="8">
+			</td>
+		</tr>
+	</table>
+</form>
+{% else %}
+<form action="/ec/{{customer.customer_link}}/" method="post">
+    {% csrf_token %}
+	<table width="100%" align="center">
+		<tr>
+			<td align="left">
+				<input type="textbox" name="last_name" class="input-c" value="{{session.ecPostTemp.last_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="last_name" class="heading bold heading-c">نام خانوادگی مشتری</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="first_name" class="input-c" value="{{session.ecPostTemp.first_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="first_name" class="heading bold heading-c">نام مشتری</label>
+			</td>
+		</tr>
+			<td align="left">
+				{% if customer.id_num == 0 %}
+				<input type="number" name="id_num" class="input-c" value="{{session.ecPostTemp.id_num}}" tabindex="2" min="0">
+				{% else %}
+				<input type="number" name="id_num" class="input-c" value="{{customer.id_num}}" readonly>
+				{% endif %}
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="id_num" class="heading bold heading-c">کد ملی</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="father_name" class="input-c" value="{{session.ecPostTemp.father_name}}" tabindex="1">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="father_name" class="heading bold heading-c">نام پدر</label>
+			</td>
+		<tr>
+			<td align="left">
+				<input type="textbox" name="job" class="input-c" value="{{session.ecPostTemp.job}}" tabindex="4">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="job" class="heading bold heading-c">شغل</label>
+			</td>
+			<td align="left">
+				<select name="gender" class="input-c" tabindex="3">
+					<option value="male" class="input-c" selected>مرد</option>
+					<option value="female" class="input-c" >زن</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="gender" class="heading bold heading-c">جنسیت</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="number" name="relative_id_num" class="input-c" value="{{session.ecPostTemp.relative_id_num}}" tabindex="6" min="0">
+			</td>
+			<td align="right" valign="top">
+				<label for="relative_id_num" class="heading bold heading-c">کد ملی خویشاوند</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="relativity" class="input-c" value="{{session.ecPostTemp.relativity}}" tabindex="5">
+			</td>
+			<td align="right" valign="top">
+				<label for="relativity" class="heading bold heading-c">خویشاوند</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td align="left">
+				<input type="textbox" name="about" class="input-c" value="{{session.ecPostTemp.about}}" tabindex="7">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="about" class="heading bold heading-c">ملاحظات</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<input type="submit" value="ثبت" class="btn btn-danger" tabindex="8">
+			</td>
+		</tr>
+	</table>
+</form>
+{% endif %}
+</div></div>
+{% endblock %}

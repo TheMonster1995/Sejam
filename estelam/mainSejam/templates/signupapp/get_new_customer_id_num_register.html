@@ -1,0 +1,28 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="container">
+<div class="panel panel-primary center-block" style="max-width:400px">
+<div class="panel-heading heading-style">ثبت مشتری با کد ملی</div>
+<div class="panel-body" style="background-color:rgb(50,100,200)" >
+
+<form class="form-harizontal" action="/gncin/" method="post" >
+{% csrf_token %}
+	<div class="form-group">
+		<label for="customer_id_num" class="control-label" style="font-size:15px; color:yellow" >لطفا کد ملی مشتری را وارد کنید</label>
+		<input type="text" name="customer_id_num" class="center-block form-control" style="max-width:200px">
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-danger" >جست و جو</button>
+		<a href="/gncn/" class="center-block link-style" style="margin-top:10px">ثبت مشتری بدون کد ملی</a>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

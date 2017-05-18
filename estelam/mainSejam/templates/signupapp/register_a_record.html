@@ -1,0 +1,110 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+
+<div class="container">
+<div class="panel panel-primary center-block " style="max-width:750px">
+<div class="panel-heading heading-style">ثبت گزارش جدید</div>
+<div class="panel-body" style="background-color:rgb(50,100,200)" >
+	
+<form class="form-harizontal" action="/rar/{{customer.id}}/" method="post" >
+	{% csrf_token %}
+
+	<div class="row">
+			
+			<div class="wall col-sm-6" align="left" >
+
+            <!-- amount of debt -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="debt_amount" class="control-label">مقدار بدهی</label>
+				<input type="text" name="debt_amount" placeholder="تومان" class="form-control center-block size-xs" tabindex="1" required>
+			</div>
+
+            <!-- kind of dept -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="debt_kind" class="control-label ">نوع بدهی</label>
+			    <select name="debt_kind" style="width:55%;" class="form-control center-block size-xs" tabindex="2">
+					<option value="normal" class="input-c" selected>عادی</option>
+					<option value="maturity" class="input-c" >سررسید شده</option>
+				</select>
+            </div>
+
+			<!-- document -->
+			<div class=" form-group align-xs form-inline" dir="rtl" >
+				<label for="proof_for_debt" class="control-label ">سند در قبال بدهی</label>
+			    <select name="proof_for_debt" style="width:55%;" class="form-control center-block size-xs" tabindex="3">
+					{% for document in debt_documents %}
+					<option value="{{document.value}}" class="input-c" >{{document.name}}</option>
+					{% endfor %}
+					<option value="none" class="input-c" >هیچ کدام</option>
+				</select> 
+            </div>
+
+            <!-- start date of due -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="debt_start_date" class="control-label ">تاریخ شروع بدهی</label>
+				<input type="text" name="debt_start_date" class="form-control center-block size-xs observer" tabindex="4" readonly>
+			</div>
+
+            <!-- date of due -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="dept_due_date" class="control-label ">موعد بدهی</label>
+				<input type="text" name="debt_due_date" class="form-control center-block size-xs observer" tabindex="5" readonly>
+			</div>
+
+		</div>
+
+		<!-- ************** -->
+		<div class="clearfix visible-xs-block"></div>
+		<!-- ************** -->
+
+			<div class="wall col-sm-6" align="left" >
+			
+			<!-- name -->
+			<div class=" form-group align-xs form-inline" dir="rtl" >
+				<label for="first_name" class="control-label">نام مشتری</label>
+				<input type="text" name="first_name" value="{{customer.first_name}}" class="form-control center-block size-xs" readonly disabled>
+			</div>
+
+			<!-- last name -->
+			<div class="form-inline align-xs form-group" dir="rtl" style="">
+				<label for="last_name" class="control-label">فامیل مشتری</label>
+				<input type="text" name="last_name" value="{{customer.last_name}}" class="form-control center-block size-xs" readonly disabled>
+			</div>
+
+			<!-- id -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="id_num" class="control-label ">شماره ملی مشتری</label>
+				<input type="text" name="id_num" value="{{customer.id_num}}" class="form-control center-block size-xs" readonly disabled>
+			</div>
+
+            <!-- last name -->
+			<div class="form-inline align-xs form-group" dir="rtl" style="">
+				<label for="registeer_date" class="control-label">تاریخ ثبت گزارش</label>
+				<input type="text" name="register_date" class="form-control center-block size-xs observer" readonly disabled>
+			</div>
+
+            <!-- about -->
+			<div class="form-inline align-xs form-group " dir="rtl">
+				<label for="about" class="control-label">ملاحظات</label>
+				<input type="text" name="about" placeholder="ملاحظات" class="form-control center-block size-xs" tabindex="6" >
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="form-group">
+			<button type="submit" class="btn btn-danger" tabindex="7" >ثبت</button>
+		</div>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

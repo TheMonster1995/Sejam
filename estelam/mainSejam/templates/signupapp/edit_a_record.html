@@ -1,0 +1,1134 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="section-title">
+<h1 style="color:rgb(30, 255, 4); padding-top: 5%;">تغییر گزارش ثبت شده</h1>
+</div>
+
+<br><br>
+
+<form action="/er/{{record.record_link}}/" method="post">
+    {% csrf_token %}
+	<table width="100%" align="center">
+		<tr>
+			<td></td>
+			<td></td>
+			<td align="left">
+				<input type="textbox" name="first_name" class="input-c" value="{{record.relation.first_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="first_name" class="heading bold heading-c">نام مشتری</label>
+			</td>
+		</tr>
+		<tr>
+<!--			<td align="left">
+				<input id="rar_register_date" type="date" name="register_date" class="input-c" value="{{register_date}}" readonly />
+			</td>
+			-->
+			<td align="left">
+				<select name="record_register_date_year" class="input-c" disabled>
+					<option value='1300' class='option-c' id='rrdy_1300'>1300</option>
+					<option value='1301' class='option-c' id='rrdy_1301'>1301</option>
+					<option value='1302' class='option-c' id='rrdy_1302'>1302</option>
+					<option value='1303' class='option-c' id='rrdy_1303'>1303</option>
+					<option value='1304' class='option-c' id='rrdy_1304'>1304</option>
+					<option value='1305' class='option-c' id='rrdy_1305'>1305</option>
+					<option value='1306' class='option-c' id='rrdy_1306'>1306</option>
+					<option value='1307' class='option-c' id='rrdy_1307'>1307</option>
+					<option value='1308' class='option-c' id='rrdy_1308'>1308</option>
+					<option value='1309' class='option-c' id='rrdy_1309'>1309</option>
+					<option value='1310' class='option-c' id='rrdy_1310'>1310</option>
+					<option value='1311' class='option-c' id='rrdy_1311'>1311</option>
+					<option value='1312' class='option-c' id='rrdy_1312'>1312</option>
+					<option value='1313' class='option-c' id='rrdy_1313'>1313</option>
+					<option value='1314' class='option-c' id='rrdy_1314'>1314</option>
+					<option value='1315' class='option-c' id='rrdy_1315'>1315</option>
+					<option value='1316' class='option-c' id='rrdy_1316'>1316</option>
+					<option value='1317' class='option-c' id='rrdy_1317'>1317</option>
+					<option value='1318' class='option-c' id='rrdy_1318'>1318</option>
+					<option value='1319' class='option-c' id='rrdy_1319'>1319</option>
+					<option value='1320' class='option-c' id='rrdy_1320'>1320</option>
+					<option value='1321' class='option-c' id='rrdy_1321'>1321</option>
+					<option value='1322' class='option-c' id='rrdy_1322'>1322</option>
+					<option value='1323' class='option-c' id='rrdy_1323'>1323</option>
+					<option value='1324' class='option-c' id='rrdy_1324'>1324</option>
+					<option value='1325' class='option-c' id='rrdy_1325'>1325</option>
+					<option value='1326' class='option-c' id='rrdy_1326'>1326</option>
+					<option value='1327' class='option-c' id='rrdy_1327'>1327</option>
+					<option value='1328' class='option-c' id='rrdy_1328'>1328</option>
+					<option value='1329' class='option-c' id='rrdy_1329'>1329</option>
+					<option value='1330' class='option-c' id='rrdy_1330'>1330</option>
+					<option value='1331' class='option-c' id='rrdy_1331'>1331</option>
+					<option value='1332' class='option-c' id='rrdy_1332'>1332</option>
+					<option value='1333' class='option-c' id='rrdy_1333'>1333</option>
+					<option value='1334' class='option-c' id='rrdy_1334'>1334</option>
+					<option value='1335' class='option-c' id='rrdy_1335'>1335</option>
+					<option value='1336' class='option-c' id='rrdy_1336'>1336</option>
+					<option value='1337' class='option-c' id='rrdy_1337'>1337</option>
+					<option value='1338' class='option-c' id='rrdy_1338'>1338</option>
+					<option value='1339' class='option-c' id='rrdy_1339'>1339</option>
+					<option value='1340' class='option-c' id='rrdy_1340'>1340</option>
+					<option value='1341' class='option-c' id='rrdy_1341'>1341</option>
+					<option value='1342' class='option-c' id='rrdy_1342'>1342</option>
+					<option value='1343' class='option-c' id='rrdy_1343'>1343</option>
+					<option value='1344' class='option-c' id='rrdy_1344'>1344</option>
+					<option value='1345' class='option-c' id='rrdy_1345'>1345</option>
+					<option value='1346' class='option-c' id='rrdy_1346'>1346</option>
+					<option value='1347' class='option-c' id='rrdy_1347'>1347</option>
+					<option value='1348' class='option-c' id='rrdy_1348'>1348</option>
+					<option value='1349' class='option-c' id='rrdy_1349'>1349</option>
+					<option value='1350' class='option-c' id='rrdy_1350'>1350</option>
+					<option value='1351' class='option-c' id='rrdy_1351'>1351</option>
+					<option value='1352' class='option-c' id='rrdy_1352'>1352</option>
+					<option value='1353' class='option-c' id='rrdy_1353'>1353</option>
+					<option value='1354' class='option-c' id='rrdy_1354'>1354</option>
+					<option value='1355' class='option-c' id='rrdy_1355'>1355</option>
+					<option value='1356' class='option-c' id='rrdy_1356'>1356</option>
+					<option value='1357' class='option-c' id='rrdy_1357'>1357</option>
+					<option value='1358' class='option-c' id='rrdy_1358'>1358</option>
+					<option value='1359' class='option-c' id='rrdy_1359'>1359</option>
+					<option value='1360' class='option-c' id='rrdy_1360'>1360</option>
+					<option value='1361' class='option-c' id='rrdy_1361'>1361</option>
+					<option value='1362' class='option-c' id='rrdy_1362'>1362</option>
+					<option value='1363' class='option-c' id='rrdy_1363'>1363</option>
+					<option value='1364' class='option-c' id='rrdy_1364'>1364</option>
+					<option value='1365' class='option-c' id='rrdy_1365'>1365</option>
+					<option value='1366' class='option-c' id='rrdy_1366'>1366</option>
+					<option value='1367' class='option-c' id='rrdy_1367'>1367</option>
+					<option value='1368' class='option-c' id='rrdy_1368'>1368</option>
+					<option value='1369' class='option-c' id='rrdy_1369'>1369</option>
+					<option value='1370' class='option-c' id='rrdy_1370'>1370</option>
+					<option value='1371' class='option-c' id='rrdy_1371'>1371</option>
+					<option value='1372' class='option-c' id='rrdy_1372'>1372</option>
+					<option value='1373' class='option-c' id='rrdy_1373'>1373</option>
+					<option value='1374' class='option-c' id='rrdy_1374'>1374</option>
+					<option value='1375' class='option-c' id='rrdy_1375'>1375</option>
+					<option value='1376' class='option-c' id='rrdy_1376'>1376</option>
+					<option value='1377' class='option-c' id='rrdy_1377'>1377</option>
+					<option value='1378' class='option-c' id='rrdy_1378'>1378</option>
+					<option value='1379' class='option-c' id='rrdy_1379'>1379</option>
+					<option value='1380' class='option-c' id='rrdy_1380'>1380</option>
+					<option value='1381' class='option-c' id='rrdy_1381'>1381</option>
+					<option value='1382' class='option-c' id='rrdy_1382'>1382</option>
+					<option value='1383' class='option-c' id='rrdy_1383'>1383</option>
+					<option value='1384' class='option-c' id='rrdy_1384'>1384</option>
+					<option value='1385' class='option-c' id='rrdy_1385'>1385</option>
+					<option value='1386' class='option-c' id='rrdy_1386'>1386</option>
+					<option value='1387' class='option-c' id='rrdy_1387'>1387</option>
+					<option value='1388' class='option-c' id='rrdy_1388'>1388</option>
+					<option value='1389' class='option-c' id='rrdy_1389'>1389</option>
+					<option value='1390' class='option-c' id='rrdy_1390'>1390</option>
+					<option value='1391' class='option-c' id='rrdy_1391'>1391</option>
+					<option value='1392' class='option-c' id='rrdy_1392'>1392</option>
+					<option value='1393' class='option-c' id='rrdy_1393'>1393</option>
+					<option value='1394' class='option-c' id='rrdy_1394'>1394</option>
+					<option value='1395' class='option-c' id='rrdy_1395'>1395</option>
+					<option value='1396' class='option-c' id='rrdy_1396'>1396</option>
+					<option value='1397' class='option-c' id='rrdy_1397'>1397</option>
+					<option value='1398' class='option-c' id='rrdy_1398'>1398</option>
+					<option value='1399' class='option-c' id='rrdy_1399'>1399</option>
+					<option value='1400' class='option-c' id='rrdy_1400'>1400</option>
+					<option value='1401' class='option-c' id='rrdy_1401'>1401</option>
+					<option value='1402' class='option-c' id='rrdy_1402'>1402</option>
+					<option value='1403' class='option-c' id='rrdy_1403'>1403</option>
+					<option value='1404' class='option-c' id='rrdy_1404'>1404</option>
+					<option value='1405' class='option-c' id='rrdy_1405'>1405</option>
+					<option value='1406' class='option-c' id='rrdy_1406'>1406</option>
+					<option value='1407' class='option-c' id='rrdy_1407'>1407</option>
+					<option value='1408' class='option-c' id='rrdy_1408'>1408</option>
+					<option value='1409' class='option-c' id='rrdy_1409'>1409</option>
+					<option value='1410' class='option-c' id='rrdy_1410'>1410</option>
+					<option value='1411' class='option-c' id='rrdy_1411'>1411</option>
+					<option value='1412' class='option-c' id='rrdy_1412'>1412</option>
+					<option value='1413' class='option-c' id='rrdy_1413'>1413</option>
+					<option value='1414' class='option-c' id='rrdy_1414'>1414</option>
+					<option value='1415' class='option-c' id='rrdy_1415'>1415</option>
+					<option value='1416' class='option-c' id='rrdy_1416'>1416</option>
+					<option value='1417' class='option-c' id='rrdy_1417'>1417</option>
+					<option value='1418' class='option-c' id='rrdy_1418'>1418</option>
+					<option value='1419' class='option-c' id='rrdy_1419'>1419</option>
+					<option value='1420' class='option-c' id='rrdy_1420'>1420</option>
+					<option value='1421' class='option-c' id='rrdy_1421'>1421</option>
+					<option value='1422' class='option-c' id='rrdy_1422'>1422</option>
+					<option value='1423' class='option-c' id='rrdy_1423'>1423</option>
+					<option value='1424' class='option-c' id='rrdy_1424'>1424</option>
+					<option value='1425' class='option-c' id='rrdy_1425'>1425</option>
+					<option value='1426' class='option-c' id='rrdy_1426'>1426</option>
+					<option value='1427' class='option-c' id='rrdy_1427'>1427</option>
+					<option value='1428' class='option-c' id='rrdy_1428'>1428</option>
+					<option value='1429' class='option-c' id='rrdy_1429'>1429</option>
+					<option value='1430' class='option-c' id='rrdy_1430'>1430</option>
+					<option value='1431' class='option-c' id='rrdy_1431'>1431</option>
+					<option value='1432' class='option-c' id='rrdy_1432'>1432</option>
+					<option value='1433' class='option-c' id='rrdy_1433'>1433</option>
+					<option value='1434' class='option-c' id='rrdy_1434'>1434</option>
+					<option value='1435' class='option-c' id='rrdy_1435'>1435</option>
+					<option value='1436' class='option-c' id='rrdy_1436'>1436</option>
+					<option value='1437' class='option-c' id='rrdy_1437'>1437</option>
+					<option value='1438' class='option-c' id='rrdy_1438'>1438</option>
+					<option value='1439' class='option-c' id='rrdy_1439'>1439</option>
+					<option value='1440' class='option-c' id='rrdy_1440'>1440</option>
+					<option value='1441' class='option-c' id='rrdy_1441'>1441</option>
+					<option value='1442' class='option-c' id='rrdy_1442'>1442</option>
+					<option value='1443' class='option-c' id='rrdy_1443'>1443</option>
+					<option value='1444' class='option-c' id='rrdy_1444'>1444</option>
+					<option value='1445' class='option-c' id='rrdy_1445'>1445</option>
+					<option value='1446' class='option-c' id='rrdy_1446'>1446</option>
+					<option value='1447' class='option-c' id='rrdy_1447'>1447</option>
+					<option value='1448' class='option-c' id='rrdy_1448'>1448</option>
+					<option value='1449' class='option-c' id='rrdy_1449'>1449</option>
+					<option value='1450' class='option-c' id='rrdy_1450'>1450</option>
+					<option value='1451' class='option-c' id='rrdy_1451'>1451</option>
+					<option value='1452' class='option-c' id='rrdy_1452'>1452</option>
+					<option value='1453' class='option-c' id='rrdy_1453'>1453</option>
+					<option value='1454' class='option-c' id='rrdy_1454'>1454</option>
+					<option value='1455' class='option-c' id='rrdy_1455'>1455</option>
+					<option value='1456' class='option-c' id='rrdy_1456'>1456</option>
+					<option value='1457' class='option-c' id='rrdy_1457'>1457</option>
+					<option value='1458' class='option-c' id='rrdy_1458'>1458</option>
+					<option value='1459' class='option-c' id='rrdy_1459'>1459</option>
+					<option value='1460' class='option-c' id='rrdy_1460'>1460</option>
+					<option value='1461' class='option-c' id='rrdy_1461'>1461</option>
+					<option value='1462' class='option-c' id='rrdy_1462'>1462</option>
+					<option value='1463' class='option-c' id='rrdy_1463'>1463</option>
+					<option value='1464' class='option-c' id='rrdy_1464'>1464</option>
+					<option value='1465' class='option-c' id='rrdy_1465'>1465</option>
+					<option value='1466' class='option-c' id='rrdy_1466'>1466</option>
+					<option value='1467' class='option-c' id='rrdy_1467'>1467</option>
+					<option value='1468' class='option-c' id='rrdy_1468'>1468</option>
+					<option value='1469' class='option-c' id='rrdy_1469'>1469</option>
+					<option value='1470' class='option-c' id='rrdy_1470'>1470</option>
+					<option value='1471' class='option-c' id='rrdy_1471'>1471</option>
+					<option value='1472' class='option-c' id='rrdy_1472'>1472</option>
+					<option value='1473' class='option-c' id='rrdy_1473'>1473</option>
+					<option value='1474' class='option-c' id='rrdy_1474'>1474</option>
+					<option value='1475' class='option-c' id='rrdy_1475'>1475</option>
+					<option value='1476' class='option-c' id='rrdy_1476'>1476</option>
+					<option value='1477' class='option-c' id='rrdy_1477'>1477</option>
+					<option value='1478' class='option-c' id='rrdy_1478'>1478</option>
+					<option value='1479' class='option-c' id='rrdy_1479'>1479</option>
+					<option value='1480' class='option-c' id='rrdy_1480'>1480</option>
+					<option value='1481' class='option-c' id='rrdy_1481'>1481</option>
+					<option value='1482' class='option-c' id='rrdy_1482'>1482</option>
+					<option value='1483' class='option-c' id='rrdy_1483'>1483</option>
+					<option value='1484' class='option-c' id='rrdy_1484'>1484</option>
+					<option value='1485' class='option-c' id='rrdy_1485'>1485</option>
+					<option value='1486' class='option-c' id='rrdy_1486'>1486</option>
+					<option value='1487' class='option-c' id='rrdy_1487'>1487</option>
+					<option value='1488' class='option-c' id='rrdy_1488'>1488</option>
+					<option value='1489' class='option-c' id='rrdy_1489'>1489</option>
+					<option value='1490' class='option-c' id='rrdy_1490'>1490</option>
+					<option value='1491' class='option-c' id='rrdy_1491'>1491</option>
+					<option value='1492' class='option-c' id='rrdy_1492'>1492</option>
+					<option value='1493' class='option-c' id='rrdy_1493'>1493</option>
+					<option value='1494' class='option-c' id='rrdy_1494'>1494</option>
+					<option value='1495' class='option-c' id='rrdy_1495'>1495</option>
+					<option value='1496' class='option-c' id='rrdy_1496'>1496</option>
+					<option value='1497' class='option-c' id='rrdy_1497'>1497</option>
+					<option value='1498' class='option-c' id='rrdy_1498'>1498</option>
+					<option value='1499' class='option-c' id='rrdy_1499'>1499</option>
+				</select>
+				<select name="record_register_date_month" class="input-c" disabled>
+					<option value="01" class="option-c" id="rrdm_01">فروردین</option>
+					<option value="02" class="option-c" id="rrdm_02">اردیبهشت</option>
+					<option value="03" class="option-c" id="rrdm_03">خرداد</option>
+					<option value="04" class="option-c" id="rrdm_04">تیر</option>
+					<option value="05" class="option-c" id="rrdm_05">مرداد</option>
+					<option value="06" class="option-c" id="rrdm_06">شهریور</option>
+					<option value="07" class="option-c" id="rrdm_07">مهر</option>
+					<option value="08" class="option-c" id="rrdm_08">آبان</option>
+					<option value="09" class="option-c" id="rrdm_09">آذر</option>
+					<option value="10" class="option-c" id="rrdm_10">دی</option>
+					<option value="11" class="option-c" id="rrdm_11">بهمن</option>
+					<option value="12" class="option-c" id="rrdm_12">اسفند</option>
+				</select>
+				<select name="record_register_date_day" class="input-c" disabled>
+					<option value='01' class='option-c' id='rrdd_01'>1</option>
+					<option value='02' class='option-c' id='rrdd_02'>2</option>
+					<option value='03' class='option-c' id='rrdd_03'>3</option>
+					<option value='04' class='option-c' id='rrdd_04'>4</option>
+					<option value='05' class='option-c' id='rrdd_05'>5</option>
+					<option value='06' class='option-c' id='rrdd_06'>6</option>
+					<option value='07' class='option-c' id='rrdd_07'>7</option>
+					<option value='08' class='option-c' id='rrdd_08'>8</option>
+					<option value='09' class='option-c' id='rrdd_09'>9</option>
+					<option value='10' class='option-c' id='rrdd_10'>10</option>
+					<option value='11' class='option-c' id='rrdd_11'>11</option>
+					<option value='12' class='option-c' id='rrdd_12'>12</option>
+					<option value='13' class='option-c' id='rrdd_13'>13</option>
+					<option value='14' class='option-c' id='rrdd_14'>14</option>
+					<option value='15' class='option-c' id='rrdd_15'>15</option>
+					<option value='16' class='option-c' id='rrdd_16'>16</option>
+					<option value='17' class='option-c' id='rrdd_17'>17</option>
+					<option value='18' class='option-c' id='rrdd_18'>18</option>
+					<option value='19' class='option-c' id='rrdd_19'>19</option>
+					<option value='20' class='option-c' id='rrdd_20'>20</option>
+					<option value='21' class='option-c' id='rrdd_21'>21</option>
+					<option value='22' class='option-c' id='rrdd_22'>22</option>
+					<option value='23' class='option-c' id='rrdd_23'>23</option>
+					<option value='24' class='option-c' id='rrdd_24'>24</option>
+					<option value='25' class='option-c' id='rrdd_25'>25</option>
+					<option value='26' class='option-c' id='rrdd_26'>26</option>
+					<option value='27' class='option-c' id='rrdd_27'>27</option>
+					<option value='28' class='option-c' id='rrdd_28'>28</option>
+					<option value='29' class='option-c' id='rrdd_29'>29</option>
+					<option value='30' class='option-c' id='rrdd_30'>30</option>
+					<option value='31' class='option-c' id='rrdd_31'>31</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="register_date" class="heading bold heading-c" >تاریخ ثبت گزارش</label>
+			</td>
+			<td align="left">
+				<input type="textbox" name="last_name" class="input-c" value="{{record.relation.last_name}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="last_name" class="heading bold heading-c">نام خانوادگی مشتری</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td align="left">
+				<input type="number" name="id_num" class="input-c" value="{{record.relation.id_num}}" readonly >
+			</td>
+			<td align="right" valign="top">
+				<label for="id_num" class="heading bold heading-c">شماره ملی مشتری</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<select name="debt_kind" class="input-c" tabindex="2">
+					<option value="normal" class="input-c" selected>عادی</option>
+					<option value="maturity" class="input-c" >سررسید شده</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="debt_kind" class="heading bold heading-c">نوع بدهی</label>
+			</td>
+			<td align="left">
+				<input type="number" name="debt_amount" class="input-c" value="{{record.debt_amount}}" tabindex="1" min="0" required >
+			</td>
+			<td align="right" valign="top">
+				<label for="debt_amount" class="heading bold heading-c">مقدار بدهی</label>
+			</td>
+		</tr>
+		<tr>
+<!--			<td align="left">
+				<input type="date" name="debt_due_date" class="input-c" value="{{debt_due_date}}" required />
+			</td>
+-->
+			<td align="left">
+				<select name="debt_due_date_year" class="input-c" tabindex="6">
+					<option value='1300' class='option-c' id='dddy_1300'>1300</option>
+					<option value='1301' class='option-c' id='dddy_1301'>1301</option>
+					<option value='1302' class='option-c' id='dddy_1302'>1302</option>
+					<option value='1303' class='option-c' id='dddy_1303'>1303</option>
+					<option value='1304' class='option-c' id='dddy_1304'>1304</option>
+					<option value='1305' class='option-c' id='dddy_1305'>1305</option>
+					<option value='1306' class='option-c' id='dddy_1306'>1306</option>
+					<option value='1307' class='option-c' id='dddy_1307'>1307</option>
+					<option value='1308' class='option-c' id='dddy_1308'>1308</option>
+					<option value='1309' class='option-c' id='dddy_1309'>1309</option>
+					<option value='1310' class='option-c' id='dddy_1310'>1310</option>
+					<option value='1311' class='option-c' id='dddy_1311'>1311</option>
+					<option value='1312' class='option-c' id='dddy_1312'>1312</option>
+					<option value='1313' class='option-c' id='dddy_1313'>1313</option>
+					<option value='1314' class='option-c' id='dddy_1314'>1314</option>
+					<option value='1315' class='option-c' id='dddy_1315'>1315</option>
+					<option value='1316' class='option-c' id='dddy_1316'>1316</option>
+					<option value='1317' class='option-c' id='dddy_1317'>1317</option>
+					<option value='1318' class='option-c' id='dddy_1318'>1318</option>
+					<option value='1319' class='option-c' id='dddy_1319'>1319</option>
+					<option value='1320' class='option-c' id='dddy_1320'>1320</option>
+					<option value='1321' class='option-c' id='dddy_1321'>1321</option>
+					<option value='1322' class='option-c' id='dddy_1322'>1322</option>
+					<option value='1323' class='option-c' id='dddy_1323'>1323</option>
+					<option value='1324' class='option-c' id='dddy_1324'>1324</option>
+					<option value='1325' class='option-c' id='dddy_1325'>1325</option>
+					<option value='1326' class='option-c' id='dddy_1326'>1326</option>
+					<option value='1327' class='option-c' id='dddy_1327'>1327</option>
+					<option value='1328' class='option-c' id='dddy_1328'>1328</option>
+					<option value='1329' class='option-c' id='dddy_1329'>1329</option>
+					<option value='1330' class='option-c' id='dddy_1330'>1330</option>
+					<option value='1331' class='option-c' id='dddy_1331'>1331</option>
+					<option value='1332' class='option-c' id='dddy_1332'>1332</option>
+					<option value='1333' class='option-c' id='dddy_1333'>1333</option>
+					<option value='1334' class='option-c' id='dddy_1334'>1334</option>
+					<option value='1335' class='option-c' id='dddy_1335'>1335</option>
+					<option value='1336' class='option-c' id='dddy_1336'>1336</option>
+					<option value='1337' class='option-c' id='dddy_1337'>1337</option>
+					<option value='1338' class='option-c' id='dddy_1338'>1338</option>
+					<option value='1339' class='option-c' id='dddy_1339'>1339</option>
+					<option value='1340' class='option-c' id='dddy_1340'>1340</option>
+					<option value='1341' class='option-c' id='dddy_1341'>1341</option>
+					<option value='1342' class='option-c' id='dddy_1342'>1342</option>
+					<option value='1343' class='option-c' id='dddy_1343'>1343</option>
+					<option value='1344' class='option-c' id='dddy_1344'>1344</option>
+					<option value='1345' class='option-c' id='dddy_1345'>1345</option>
+					<option value='1346' class='option-c' id='dddy_1346'>1346</option>
+					<option value='1347' class='option-c' id='dddy_1347'>1347</option>
+					<option value='1348' class='option-c' id='dddy_1348'>1348</option>
+					<option value='1349' class='option-c' id='dddy_1349'>1349</option>
+					<option value='1350' class='option-c' id='dddy_1350'>1350</option>
+					<option value='1351' class='option-c' id='dddy_1351'>1351</option>
+					<option value='1352' class='option-c' id='dddy_1352'>1352</option>
+					<option value='1353' class='option-c' id='dddy_1353'>1353</option>
+					<option value='1354' class='option-c' id='dddy_1354'>1354</option>
+					<option value='1355' class='option-c' id='dddy_1355'>1355</option>
+					<option value='1356' class='option-c' id='dddy_1356'>1356</option>
+					<option value='1357' class='option-c' id='dddy_1357'>1357</option>
+					<option value='1358' class='option-c' id='dddy_1358'>1358</option>
+					<option value='1359' class='option-c' id='dddy_1359'>1359</option>
+					<option value='1360' class='option-c' id='dddy_1360'>1360</option>
+					<option value='1361' class='option-c' id='dddy_1361'>1361</option>
+					<option value='1362' class='option-c' id='dddy_1362'>1362</option>
+					<option value='1363' class='option-c' id='dddy_1363'>1363</option>
+					<option value='1364' class='option-c' id='dddy_1364'>1364</option>
+					<option value='1365' class='option-c' id='dddy_1365'>1365</option>
+					<option value='1366' class='option-c' id='dddy_1366'>1366</option>
+					<option value='1367' class='option-c' id='dddy_1367'>1367</option>
+					<option value='1368' class='option-c' id='dddy_1368'>1368</option>
+					<option value='1369' class='option-c' id='dddy_1369'>1369</option>
+					<option value='1370' class='option-c' id='dddy_1370'>1370</option>
+					<option value='1371' class='option-c' id='dddy_1371'>1371</option>
+					<option value='1372' class='option-c' id='dddy_1372'>1372</option>
+					<option value='1373' class='option-c' id='dddy_1373'>1373</option>
+					<option value='1374' class='option-c' id='dddy_1374'>1374</option>
+					<option value='1375' class='option-c' id='dddy_1375'>1375</option>
+					<option value='1376' class='option-c' id='dddy_1376'>1376</option>
+					<option value='1377' class='option-c' id='dddy_1377'>1377</option>
+					<option value='1378' class='option-c' id='dddy_1378'>1378</option>
+					<option value='1379' class='option-c' id='dddy_1379'>1379</option>
+					<option value='1380' class='option-c' id='dddy_1380'>1380</option>
+					<option value='1381' class='option-c' id='dddy_1381'>1381</option>
+					<option value='1382' class='option-c' id='dddy_1382'>1382</option>
+					<option value='1383' class='option-c' id='dddy_1383'>1383</option>
+					<option value='1384' class='option-c' id='dddy_1384'>1384</option>
+					<option value='1385' class='option-c' id='dddy_1385'>1385</option>
+					<option value='1386' class='option-c' id='dddy_1386'>1386</option>
+					<option value='1387' class='option-c' id='dddy_1387'>1387</option>
+					<option value='1388' class='option-c' id='dddy_1388'>1388</option>
+					<option value='1389' class='option-c' id='dddy_1389'>1389</option>
+					<option value='1390' class='option-c' id='dddy_1390'>1390</option>
+					<option value='1391' class='option-c' id='dddy_1391'>1391</option>
+					<option value='1392' class='option-c' id='dddy_1392'>1392</option>
+					<option value='1393' class='option-c' id='dddy_1393'>1393</option>
+					<option value='1394' class='option-c' id='dddy_1394'>1394</option>
+					<option value='1395' class='option-c' id='dddy_1395'>1395</option>
+					<option value='1396' class='option-c' id='dddy_1396'>1396</option>
+					<option value='1397' class='option-c' id='dddy_1397'>1397</option>
+					<option value='1398' class='option-c' id='dddy_1398'>1398</option>
+					<option value='1399' class='option-c' id='dddy_1399'>1399</option>
+					<option value='1400' class='option-c' id='dddy_1400'>1400</option>
+					<option value='1401' class='option-c' id='dddy_1401'>1401</option>
+					<option value='1402' class='option-c' id='dddy_1402'>1402</option>
+					<option value='1403' class='option-c' id='dddy_1403'>1403</option>
+					<option value='1404' class='option-c' id='dddy_1404'>1404</option>
+					<option value='1405' class='option-c' id='dddy_1405'>1405</option>
+					<option value='1406' class='option-c' id='dddy_1406'>1406</option>
+					<option value='1407' class='option-c' id='dddy_1407'>1407</option>
+					<option value='1408' class='option-c' id='dddy_1408'>1408</option>
+					<option value='1409' class='option-c' id='dddy_1409'>1409</option>
+					<option value='1410' class='option-c' id='dddy_1410'>1410</option>
+					<option value='1411' class='option-c' id='dddy_1411'>1411</option>
+					<option value='1412' class='option-c' id='dddy_1412'>1412</option>
+					<option value='1413' class='option-c' id='dddy_1413'>1413</option>
+					<option value='1414' class='option-c' id='dddy_1414'>1414</option>
+					<option value='1415' class='option-c' id='dddy_1415'>1415</option>
+					<option value='1416' class='option-c' id='dddy_1416'>1416</option>
+					<option value='1417' class='option-c' id='dddy_1417'>1417</option>
+					<option value='1418' class='option-c' id='dddy_1418'>1418</option>
+					<option value='1419' class='option-c' id='dddy_1419'>1419</option>
+					<option value='1420' class='option-c' id='dddy_1420'>1420</option>
+					<option value='1421' class='option-c' id='dddy_1421'>1421</option>
+					<option value='1422' class='option-c' id='dddy_1422'>1422</option>
+					<option value='1423' class='option-c' id='dddy_1423'>1423</option>
+					<option value='1424' class='option-c' id='dddy_1424'>1424</option>
+					<option value='1425' class='option-c' id='dddy_1425'>1425</option>
+					<option value='1426' class='option-c' id='dddy_1426'>1426</option>
+					<option value='1427' class='option-c' id='dddy_1427'>1427</option>
+					<option value='1428' class='option-c' id='dddy_1428'>1428</option>
+					<option value='1429' class='option-c' id='dddy_1429'>1429</option>
+					<option value='1430' class='option-c' id='dddy_1430'>1430</option>
+					<option value='1431' class='option-c' id='dddy_1431'>1431</option>
+					<option value='1432' class='option-c' id='dddy_1432'>1432</option>
+					<option value='1433' class='option-c' id='dddy_1433'>1433</option>
+					<option value='1434' class='option-c' id='dddy_1434'>1434</option>
+					<option value='1435' class='option-c' id='dddy_1435'>1435</option>
+					<option value='1436' class='option-c' id='dddy_1436'>1436</option>
+					<option value='1437' class='option-c' id='dddy_1437'>1437</option>
+					<option value='1438' class='option-c' id='dddy_1438'>1438</option>
+					<option value='1439' class='option-c' id='dddy_1439'>1439</option>
+					<option value='1440' class='option-c' id='dddy_1440'>1440</option>
+					<option value='1441' class='option-c' id='dddy_1441'>1441</option>
+					<option value='1442' class='option-c' id='dddy_1442'>1442</option>
+					<option value='1443' class='option-c' id='dddy_1443'>1443</option>
+					<option value='1444' class='option-c' id='dddy_1444'>1444</option>
+					<option value='1445' class='option-c' id='dddy_1445'>1445</option>
+					<option value='1446' class='option-c' id='dddy_1446'>1446</option>
+					<option value='1447' class='option-c' id='dddy_1447'>1447</option>
+					<option value='1448' class='option-c' id='dddy_1448'>1448</option>
+					<option value='1449' class='option-c' id='dddy_1449'>1449</option>
+					<option value='1450' class='option-c' id='dddy_1450'>1450</option>
+					<option value='1451' class='option-c' id='dddy_1451'>1451</option>
+					<option value='1452' class='option-c' id='dddy_1452'>1452</option>
+					<option value='1453' class='option-c' id='dddy_1453'>1453</option>
+					<option value='1454' class='option-c' id='dddy_1454'>1454</option>
+					<option value='1455' class='option-c' id='dddy_1455'>1455</option>
+					<option value='1456' class='option-c' id='dddy_1456'>1456</option>
+					<option value='1457' class='option-c' id='dddy_1457'>1457</option>
+					<option value='1458' class='option-c' id='dddy_1458'>1458</option>
+					<option value='1459' class='option-c' id='dddy_1459'>1459</option>
+					<option value='1460' class='option-c' id='dddy_1460'>1460</option>
+					<option value='1461' class='option-c' id='dddy_1461'>1461</option>
+					<option value='1462' class='option-c' id='dddy_1462'>1462</option>
+					<option value='1463' class='option-c' id='dddy_1463'>1463</option>
+					<option value='1464' class='option-c' id='dddy_1464'>1464</option>
+					<option value='1465' class='option-c' id='dddy_1465'>1465</option>
+					<option value='1466' class='option-c' id='dddy_1466'>1466</option>
+					<option value='1467' class='option-c' id='dddy_1467'>1467</option>
+					<option value='1468' class='option-c' id='dddy_1468'>1468</option>
+					<option value='1469' class='option-c' id='dddy_1469'>1469</option>
+					<option value='1470' class='option-c' id='dddy_1470'>1470</option>
+					<option value='1471' class='option-c' id='dddy_1471'>1471</option>
+					<option value='1472' class='option-c' id='dddy_1472'>1472</option>
+					<option value='1473' class='option-c' id='dddy_1473'>1473</option>
+					<option value='1474' class='option-c' id='dddy_1474'>1474</option>
+					<option value='1475' class='option-c' id='dddy_1475'>1475</option>
+					<option value='1476' class='option-c' id='dddy_1476'>1476</option>
+					<option value='1477' class='option-c' id='dddy_1477'>1477</option>
+					<option value='1478' class='option-c' id='dddy_1478'>1478</option>
+					<option value='1479' class='option-c' id='dddy_1479'>1479</option>
+					<option value='1480' class='option-c' id='dddy_1480'>1480</option>
+					<option value='1481' class='option-c' id='dddy_1481'>1481</option>
+					<option value='1482' class='option-c' id='dddy_1482'>1482</option>
+					<option value='1483' class='option-c' id='dddy_1483'>1483</option>
+					<option value='1484' class='option-c' id='dddy_1484'>1484</option>
+					<option value='1485' class='option-c' id='dddy_1485'>1485</option>
+					<option value='1486' class='option-c' id='dddy_1486'>1486</option>
+					<option value='1487' class='option-c' id='dddy_1487'>1487</option>
+					<option value='1488' class='option-c' id='dddy_1488'>1488</option>
+					<option value='1489' class='option-c' id='dddy_1489'>1489</option>
+					<option value='1490' class='option-c' id='dddy_1490'>1490</option>
+					<option value='1491' class='option-c' id='dddy_1491'>1491</option>
+					<option value='1492' class='option-c' id='dddy_1492'>1492</option>
+					<option value='1493' class='option-c' id='dddy_1493'>1493</option>
+					<option value='1494' class='option-c' id='dddy_1494'>1494</option>
+					<option value='1495' class='option-c' id='dddy_1495'>1495</option>
+					<option value='1496' class='option-c' id='dddy_1496'>1496</option>
+					<option value='1497' class='option-c' id='dddy_1497'>1497</option>
+					<option value='1498' class='option-c' id='dddy_1498'>1498</option>
+					<option value='1499' class='option-c' id='dddy_1499'>1499</option>
+				</select>
+				<select name="debt_due_date_month" class="input-c" id="dddm" onchange="valid_date()" tabindex="7">
+					<option value="01" class="option-c" id="dddm_01">فروردین</option>
+					<option value="02" class="option-c" id="dddm_02">اردیبهشت</option>
+					<option value="03" class="option-c" id="dddm_03">خرداد</option>
+					<option value="04" class="option-c" id="dddm_04">تیر</option>
+					<option value="05" class="option-c" id="dddm_05">مرداد</option>
+					<option value="06" class="option-c" id="dddm_06">شهریور</option>
+					<option value="07" class="option-c" id="dddm_07">مهر</option>
+					<option value="08" class="option-c" id="dddm_08">آبان</option>
+					<option value="09" class="option-c" id="dddm_09">آذر</option>
+					<option value="10" class="option-c" id="dddm_10">دی</option>
+					<option value="11" class="option-c" id="dddm_11">بهمن</option>
+					<option value="12" class="option-c" id="dddm_12">اسفند</option>
+				</select>
+				<select name="debt_due_date_day" class="input-c" tabindex="8">
+					<option value='01' class='option-c' id='dddd_01'>1</option>
+					<option value='02' class='option-c' id='dddd_02'>2</option>
+					<option value='03' class='option-c' id='dddd_03'>3</option>
+					<option value='04' class='option-c' id='dddd_04'>4</option>
+					<option value='05' class='option-c' id='dddd_05'>5</option>
+					<option value='06' class='option-c' id='dddd_06'>6</option>
+					<option value='07' class='option-c' id='dddd_07'>7</option>
+					<option value='08' class='option-c' id='dddd_08'>8</option>
+					<option value='09' class='option-c' id='dddd_09'>9</option>
+					<option value='10' class='option-c' id='dddd_10'>10</option>
+					<option value='11' class='option-c' id='dddd_11'>11</option>
+					<option value='12' class='option-c' id='dddd_12'>12</option>
+					<option value='13' class='option-c' id='dddd_13'>13</option>
+					<option value='14' class='option-c' id='dddd_14'>14</option>
+					<option value='15' class='option-c' id='dddd_15'>15</option>
+					<option value='16' class='option-c' id='dddd_16'>16</option>
+					<option value='17' class='option-c' id='dddd_17'>17</option>
+					<option value='18' class='option-c' id='dddd_18'>18</option>
+					<option value='19' class='option-c' id='dddd_19'>19</option>
+					<option value='20' class='option-c' id='dddd_20'>20</option>
+					<option value='21' class='option-c' id='dddd_21'>21</option>
+					<option value='22' class='option-c' id='dddd_22'>22</option>
+					<option value='23' class='option-c' id='dddd_23'>23</option>
+					<option value='24' class='option-c' id='dddd_24'>24</option>
+					<option value='25' class='option-c' id='dddd_25'>25</option>
+					<option value='26' class='option-c' id='dddd_26'>26</option>
+					<option value='27' class='option-c' id='dddd_27'>27</option>
+					<option value='28' class='option-c' id='dddd_28'>28</option>
+					<option value='29' class='option-c' id='dddd_29'>29</option>
+					<option value='30' class='option-c' id='dddd_30'>30</option>
+					<option value='31' class='option-c' id='dddd_31'>31</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="debt_due_date" class="heading bold heading-c">موعد بدهی</label>
+			</td>
+<!--			<td align="left">
+				<input type="date" name="debt_start_date" class="input-c" value="{{debt_start_date}}" required />
+			</td>
+-->
+			<td align="left">
+				<select name="debt_start_date_year" class="input-c" tabindex="3">
+					<option value='1300' class='option-c' id='dsdy_1300'>1300</option>
+					<option value='1301' class='option-c' id='dsdy_1301'>1301</option>
+					<option value='1302' class='option-c' id='dsdy_1302'>1302</option>
+					<option value='1303' class='option-c' id='dsdy_1303'>1303</option>
+					<option value='1304' class='option-c' id='dsdy_1304'>1304</option>
+					<option value='1305' class='option-c' id='dsdy_1305'>1305</option>
+					<option value='1306' class='option-c' id='dsdy_1306'>1306</option>
+					<option value='1307' class='option-c' id='dsdy_1307'>1307</option>
+					<option value='1308' class='option-c' id='dsdy_1308'>1308</option>
+					<option value='1309' class='option-c' id='dsdy_1309'>1309</option>
+					<option value='1310' class='option-c' id='dsdy_1310'>1310</option>
+					<option value='1311' class='option-c' id='dsdy_1311'>1311</option>
+					<option value='1312' class='option-c' id='dsdy_1312'>1312</option>
+					<option value='1313' class='option-c' id='dsdy_1313'>1313</option>
+					<option value='1314' class='option-c' id='dsdy_1314'>1314</option>
+					<option value='1315' class='option-c' id='dsdy_1315'>1315</option>
+					<option value='1316' class='option-c' id='dsdy_1316'>1316</option>
+					<option value='1317' class='option-c' id='dsdy_1317'>1317</option>
+					<option value='1318' class='option-c' id='dsdy_1318'>1318</option>
+					<option value='1319' class='option-c' id='dsdy_1319'>1319</option>
+					<option value='1320' class='option-c' id='dsdy_1320'>1320</option>
+					<option value='1321' class='option-c' id='dsdy_1321'>1321</option>
+					<option value='1322' class='option-c' id='dsdy_1322'>1322</option>
+					<option value='1323' class='option-c' id='dsdy_1323'>1323</option>
+					<option value='1324' class='option-c' id='dsdy_1324'>1324</option>
+					<option value='1325' class='option-c' id='dsdy_1325'>1325</option>
+					<option value='1326' class='option-c' id='dsdy_1326'>1326</option>
+					<option value='1327' class='option-c' id='dsdy_1327'>1327</option>
+					<option value='1328' class='option-c' id='dsdy_1328'>1328</option>
+					<option value='1329' class='option-c' id='dsdy_1329'>1329</option>
+					<option value='1330' class='option-c' id='dsdy_1330'>1330</option>
+					<option value='1331' class='option-c' id='dsdy_1331'>1331</option>
+					<option value='1332' class='option-c' id='dsdy_1332'>1332</option>
+					<option value='1333' class='option-c' id='dsdy_1333'>1333</option>
+					<option value='1334' class='option-c' id='dsdy_1334'>1334</option>
+					<option value='1335' class='option-c' id='dsdy_1335'>1335</option>
+					<option value='1336' class='option-c' id='dsdy_1336'>1336</option>
+					<option value='1337' class='option-c' id='dsdy_1337'>1337</option>
+					<option value='1338' class='option-c' id='dsdy_1338'>1338</option>
+					<option value='1339' class='option-c' id='dsdy_1339'>1339</option>
+					<option value='1340' class='option-c' id='dsdy_1340'>1340</option>
+					<option value='1341' class='option-c' id='dsdy_1341'>1341</option>
+					<option value='1342' class='option-c' id='dsdy_1342'>1342</option>
+					<option value='1343' class='option-c' id='dsdy_1343'>1343</option>
+					<option value='1344' class='option-c' id='dsdy_1344'>1344</option>
+					<option value='1345' class='option-c' id='dsdy_1345'>1345</option>
+					<option value='1346' class='option-c' id='dsdy_1346'>1346</option>
+					<option value='1347' class='option-c' id='dsdy_1347'>1347</option>
+					<option value='1348' class='option-c' id='dsdy_1348'>1348</option>
+					<option value='1349' class='option-c' id='dsdy_1349'>1349</option>
+					<option value='1350' class='option-c' id='dsdy_1350'>1350</option>
+					<option value='1351' class='option-c' id='dsdy_1351'>1351</option>
+					<option value='1352' class='option-c' id='dsdy_1352'>1352</option>
+					<option value='1353' class='option-c' id='dsdy_1353'>1353</option>
+					<option value='1354' class='option-c' id='dsdy_1354'>1354</option>
+					<option value='1355' class='option-c' id='dsdy_1355'>1355</option>
+					<option value='1356' class='option-c' id='dsdy_1356'>1356</option>
+					<option value='1357' class='option-c' id='dsdy_1357'>1357</option>
+					<option value='1358' class='option-c' id='dsdy_1358'>1358</option>
+					<option value='1359' class='option-c' id='dsdy_1359'>1359</option>
+					<option value='1360' class='option-c' id='dsdy_1360'>1360</option>
+					<option value='1361' class='option-c' id='dsdy_1361'>1361</option>
+					<option value='1362' class='option-c' id='dsdy_1362'>1362</option>
+					<option value='1363' class='option-c' id='dsdy_1363'>1363</option>
+					<option value='1364' class='option-c' id='dsdy_1364'>1364</option>
+					<option value='1365' class='option-c' id='dsdy_1365'>1365</option>
+					<option value='1366' class='option-c' id='dsdy_1366'>1366</option>
+					<option value='1367' class='option-c' id='dsdy_1367'>1367</option>
+					<option value='1368' class='option-c' id='dsdy_1368'>1368</option>
+					<option value='1369' class='option-c' id='dsdy_1369'>1369</option>
+					<option value='1370' class='option-c' id='dsdy_1370'>1370</option>
+					<option value='1371' class='option-c' id='dsdy_1371'>1371</option>
+					<option value='1372' class='option-c' id='dsdy_1372'>1372</option>
+					<option value='1373' class='option-c' id='dsdy_1373'>1373</option>
+					<option value='1374' class='option-c' id='dsdy_1374'>1374</option>
+					<option value='1375' class='option-c' id='dsdy_1375'>1375</option>
+					<option value='1376' class='option-c' id='dsdy_1376'>1376</option>
+					<option value='1377' class='option-c' id='dsdy_1377'>1377</option>
+					<option value='1378' class='option-c' id='dsdy_1378'>1378</option>
+					<option value='1379' class='option-c' id='dsdy_1379'>1379</option>
+					<option value='1380' class='option-c' id='dsdy_1380'>1380</option>
+					<option value='1381' class='option-c' id='dsdy_1381'>1381</option>
+					<option value='1382' class='option-c' id='dsdy_1382'>1382</option>
+					<option value='1383' class='option-c' id='dsdy_1383'>1383</option>
+					<option value='1384' class='option-c' id='dsdy_1384'>1384</option>
+					<option value='1385' class='option-c' id='dsdy_1385'>1385</option>
+					<option value='1386' class='option-c' id='dsdy_1386'>1386</option>
+					<option value='1387' class='option-c' id='dsdy_1387'>1387</option>
+					<option value='1388' class='option-c' id='dsdy_1388'>1388</option>
+					<option value='1389' class='option-c' id='dsdy_1389'>1389</option>
+					<option value='1390' class='option-c' id='dsdy_1390'>1390</option>
+					<option value='1391' class='option-c' id='dsdy_1391'>1391</option>
+					<option value='1392' class='option-c' id='dsdy_1392'>1392</option>
+					<option value='1393' class='option-c' id='dsdy_1393'>1393</option>
+					<option value='1394' class='option-c' id='dsdy_1394'>1394</option>
+					<option value='1395' class='option-c' id='dsdy_1395'>1395</option>
+					<option value='1396' class='option-c' id='dsdy_1396'>1396</option>
+					<option value='1397' class='option-c' id='dsdy_1397'>1397</option>
+					<option value='1398' class='option-c' id='dsdy_1398'>1398</option>
+					<option value='1399' class='option-c' id='dsdy_1399'>1399</option>
+					<option value='1400' class='option-c' id='dsdy_1400'>1400</option>
+					<option value='1401' class='option-c' id='dsdy_1401'>1401</option>
+					<option value='1402' class='option-c' id='dsdy_1402'>1402</option>
+					<option value='1403' class='option-c' id='dsdy_1403'>1403</option>
+					<option value='1404' class='option-c' id='dsdy_1404'>1404</option>
+					<option value='1405' class='option-c' id='dsdy_1405'>1405</option>
+					<option value='1406' class='option-c' id='dsdy_1406'>1406</option>
+					<option value='1407' class='option-c' id='dsdy_1407'>1407</option>
+					<option value='1408' class='option-c' id='dsdy_1408'>1408</option>
+					<option value='1409' class='option-c' id='dsdy_1409'>1409</option>
+					<option value='1410' class='option-c' id='dsdy_1410'>1410</option>
+					<option value='1411' class='option-c' id='dsdy_1411'>1411</option>
+					<option value='1412' class='option-c' id='dsdy_1412'>1412</option>
+					<option value='1413' class='option-c' id='dsdy_1413'>1413</option>
+					<option value='1414' class='option-c' id='dsdy_1414'>1414</option>
+					<option value='1415' class='option-c' id='dsdy_1415'>1415</option>
+					<option value='1416' class='option-c' id='dsdy_1416'>1416</option>
+					<option value='1417' class='option-c' id='dsdy_1417'>1417</option>
+					<option value='1418' class='option-c' id='dsdy_1418'>1418</option>
+					<option value='1419' class='option-c' id='dsdy_1419'>1419</option>
+					<option value='1420' class='option-c' id='dsdy_1420'>1420</option>
+					<option value='1421' class='option-c' id='dsdy_1421'>1421</option>
+					<option value='1422' class='option-c' id='dsdy_1422'>1422</option>
+					<option value='1423' class='option-c' id='dsdy_1423'>1423</option>
+					<option value='1424' class='option-c' id='dsdy_1424'>1424</option>
+					<option value='1425' class='option-c' id='dsdy_1425'>1425</option>
+					<option value='1426' class='option-c' id='dsdy_1426'>1426</option>
+					<option value='1427' class='option-c' id='dsdy_1427'>1427</option>
+					<option value='1428' class='option-c' id='dsdy_1428'>1428</option>
+					<option value='1429' class='option-c' id='dsdy_1429'>1429</option>
+					<option value='1430' class='option-c' id='dsdy_1430'>1430</option>
+					<option value='1431' class='option-c' id='dsdy_1431'>1431</option>
+					<option value='1432' class='option-c' id='dsdy_1432'>1432</option>
+					<option value='1433' class='option-c' id='dsdy_1433'>1433</option>
+					<option value='1434' class='option-c' id='dsdy_1434'>1434</option>
+					<option value='1435' class='option-c' id='dsdy_1435'>1435</option>
+					<option value='1436' class='option-c' id='dsdy_1436'>1436</option>
+					<option value='1437' class='option-c' id='dsdy_1437'>1437</option>
+					<option value='1438' class='option-c' id='dsdy_1438'>1438</option>
+					<option value='1439' class='option-c' id='dsdy_1439'>1439</option>
+					<option value='1440' class='option-c' id='dsdy_1440'>1440</option>
+					<option value='1441' class='option-c' id='dsdy_1441'>1441</option>
+					<option value='1442' class='option-c' id='dsdy_1442'>1442</option>
+					<option value='1443' class='option-c' id='dsdy_1443'>1443</option>
+					<option value='1444' class='option-c' id='dsdy_1444'>1444</option>
+					<option value='1445' class='option-c' id='dsdy_1445'>1445</option>
+					<option value='1446' class='option-c' id='dsdy_1446'>1446</option>
+					<option value='1447' class='option-c' id='dsdy_1447'>1447</option>
+					<option value='1448' class='option-c' id='dsdy_1448'>1448</option>
+					<option value='1449' class='option-c' id='dsdy_1449'>1449</option>
+					<option value='1450' class='option-c' id='dsdy_1450'>1450</option>
+					<option value='1451' class='option-c' id='dsdy_1451'>1451</option>
+					<option value='1452' class='option-c' id='dsdy_1452'>1452</option>
+					<option value='1453' class='option-c' id='dsdy_1453'>1453</option>
+					<option value='1454' class='option-c' id='dsdy_1454'>1454</option>
+					<option value='1455' class='option-c' id='dsdy_1455'>1455</option>
+					<option value='1456' class='option-c' id='dsdy_1456'>1456</option>
+					<option value='1457' class='option-c' id='dsdy_1457'>1457</option>
+					<option value='1458' class='option-c' id='dsdy_1458'>1458</option>
+					<option value='1459' class='option-c' id='dsdy_1459'>1459</option>
+					<option value='1460' class='option-c' id='dsdy_1460'>1460</option>
+					<option value='1461' class='option-c' id='dsdy_1461'>1461</option>
+					<option value='1462' class='option-c' id='dsdy_1462'>1462</option>
+					<option value='1463' class='option-c' id='dsdy_1463'>1463</option>
+					<option value='1464' class='option-c' id='dsdy_1464'>1464</option>
+					<option value='1465' class='option-c' id='dsdy_1465'>1465</option>
+					<option value='1466' class='option-c' id='dsdy_1466'>1466</option>
+					<option value='1467' class='option-c' id='dsdy_1467'>1467</option>
+					<option value='1468' class='option-c' id='dsdy_1468'>1468</option>
+					<option value='1469' class='option-c' id='dsdy_1469'>1469</option>
+					<option value='1470' class='option-c' id='dsdy_1470'>1470</option>
+					<option value='1471' class='option-c' id='dsdy_1471'>1471</option>
+					<option value='1472' class='option-c' id='dsdy_1472'>1472</option>
+					<option value='1473' class='option-c' id='dsdy_1473'>1473</option>
+					<option value='1474' class='option-c' id='dsdy_1474'>1474</option>
+					<option value='1475' class='option-c' id='dsdy_1475'>1475</option>
+					<option value='1476' class='option-c' id='dsdy_1476'>1476</option>
+					<option value='1477' class='option-c' id='dsdy_1477'>1477</option>
+					<option value='1478' class='option-c' id='dsdy_1478'>1478</option>
+					<option value='1479' class='option-c' id='dsdy_1479'>1479</option>
+					<option value='1480' class='option-c' id='dsdy_1480'>1480</option>
+					<option value='1481' class='option-c' id='dsdy_1481'>1481</option>
+					<option value='1482' class='option-c' id='dsdy_1482'>1482</option>
+					<option value='1483' class='option-c' id='dsdy_1483'>1483</option>
+					<option value='1484' class='option-c' id='dsdy_1484'>1484</option>
+					<option value='1485' class='option-c' id='dsdy_1485'>1485</option>
+					<option value='1486' class='option-c' id='dsdy_1486'>1486</option>
+					<option value='1487' class='option-c' id='dsdy_1487'>1487</option>
+					<option value='1488' class='option-c' id='dsdy_1488'>1488</option>
+					<option value='1489' class='option-c' id='dsdy_1489'>1489</option>
+					<option value='1490' class='option-c' id='dsdy_1490'>1490</option>
+					<option value='1491' class='option-c' id='dsdy_1491'>1491</option>
+					<option value='1492' class='option-c' id='dsdy_1492'>1492</option>
+					<option value='1493' class='option-c' id='dsdy_1493'>1493</option>
+					<option value='1494' class='option-c' id='dsdy_1494'>1494</option>
+					<option value='1495' class='option-c' id='dsdy_1495'>1495</option>
+					<option value='1496' class='option-c' id='dsdy_1496'>1496</option>
+					<option value='1497' class='option-c' id='dsdy_1497'>1497</option>
+					<option value='1498' class='option-c' id='dsdy_1498'>1498</option>
+					<option value='1499' class='option-c' id='dsdy_1499'>1499</option>
+				</select>
+				<select name="debt_start_date_month" class="input-c" id="dsdm" onchange="valid_date()" tabindex="4">
+					<option value="01" class="option-c" id="dsdm_01">فروردین</option>
+					<option value="02" class="option-c" id="dsdm_02">اردیبهشت</option>
+					<option value="03" class="option-c" id="dsdm_03">خرداد</option>
+					<option value="04" class="option-c" id="dsdm_04">تیر</option>
+					<option value="05" class="option-c" id="dsdm_05">مرداد</option>
+					<option value="06" class="option-c" id="dsdm_06">شهریور</option>
+					<option value="07" class="option-c" id="dsdm_07">مهر</option>
+					<option value="08" class="option-c" id="dsdm_08">آبان</option>
+					<option value="09" class="option-c" id="dsdm_09">آذر</option>
+					<option value="10" class="option-c" id="dsdm_10">دی</option>
+					<option value="11" class="option-c" id="dsdm_11">بهمن</option>
+					<option value="12" class="option-c" id="dsdm_12">اسفند</option>
+				</select>
+				<select name="debt_start_date_day" class="input-c" tabindex="5">
+					<option value='01' class='option-c' id='dsdd_01'>1</option>
+					<option value='02' class='option-c' id='dsdd_02'>2</option>
+					<option value='03' class='option-c' id='dsdd_03'>3</option>
+					<option value='04' class='option-c' id='dsdd_04'>4</option>
+					<option value='05' class='option-c' id='dsdd_05'>5</option>
+					<option value='06' class='option-c' id='dsdd_06'>6</option>
+					<option value='07' class='option-c' id='dsdd_07'>7</option>
+					<option value='08' class='option-c' id='dsdd_08'>8</option>
+					<option value='09' class='option-c' id='dsdd_09'>9</option>
+					<option value='10' class='option-c' id='dsdd_10'>10</option>
+					<option value='11' class='option-c' id='dsdd_11'>11</option>
+					<option value='12' class='option-c' id='dsdd_12'>12</option>
+					<option value='13' class='option-c' id='dsdd_13'>13</option>
+					<option value='14' class='option-c' id='dsdd_14'>14</option>
+					<option value='15' class='option-c' id='dsdd_15'>15</option>
+					<option value='16' class='option-c' id='dsdd_16'>16</option>
+					<option value='17' class='option-c' id='dsdd_17'>17</option>
+					<option value='18' class='option-c' id='dsdd_18'>18</option>
+					<option value='19' class='option-c' id='dsdd_19'>19</option>
+					<option value='20' class='option-c' id='dsdd_20'>20</option>
+					<option value='21' class='option-c' id='dsdd_21'>21</option>
+					<option value='22' class='option-c' id='dsdd_22'>22</option>
+					<option value='23' class='option-c' id='dsdd_23'>23</option>
+					<option value='24' class='option-c' id='dsdd_24'>24</option>
+					<option value='25' class='option-c' id='dsdd_25'>25</option>
+					<option value='26' class='option-c' id='dsdd_26'>26</option>
+					<option value='27' class='option-c' id='dsdd_27'>27</option>
+					<option value='28' class='option-c' id='dsdd_28'>28</option>
+					<option value='29' class='option-c' id='dsdd_29'>29</option>
+					<option value='30' class='option-c' id='dsdd_30'>30</option>
+					<option value='31' class='option-c' id='dsdd_31'>31</option>
+				</select>
+			</td>
+			<td align="right" valign="top">
+				<label for="debt_start_date" class="heading bold heading-c">تاریخ شروع بدهی</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="textbox" name="about" class="input-c" value="{{record.about}}"  tabindex="10">
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="about" class="heading bold heading-c">ملاحظات</label>
+			</td>
+			<td align="left">
+				<select name="proof_for_debt" class="input-c" tabindex="9">
+					<option value="cheque" class="input-c" selected>چک</option>
+					<option value="demand_note" class="input-c" >سفته</option>
+					{% for document in debt_documents %}
+					<option value="{{document.value}}" class="input-c" >{{document.name}}</option>
+					{% endfor %}
+					<option value="none" class="input-c" >هیچ کدام</option>
+				</select>
+			</td>
+			<td align="right" valign="top">
+				<label for="proof_for_debt" class="heading bold heading-c">سند در قبال بدهی</label>
+			</td>
+		</tr>
+		<tr>
+<!--			<td align="left">
+				<input id="er_cleared_debt_date" type="date" name="debt_clearance_date" class="input-c" value="{{debt_clearance_date}}" required />
+			</td>
+-->
+			<td align="left">
+				<select name="debt_clearance_date_year" class="input-c" id="er_cleared_debt_date_year" tabindex="12">
+					<option value="0000" class="option-c" id="dcdy_0000">سال</option>
+					<option value='1300' class='option-c' id='dcdy_1300'>1300</option>
+					<option value='1301' class='option-c' id='dcdy_1301'>1301</option>
+					<option value='1302' class='option-c' id='dcdy_1302'>1302</option>
+					<option value='1303' class='option-c' id='dcdy_1303'>1303</option>
+					<option value='1304' class='option-c' id='dcdy_1304'>1304</option>
+					<option value='1305' class='option-c' id='dcdy_1305'>1305</option>
+					<option value='1306' class='option-c' id='dcdy_1306'>1306</option>
+					<option value='1307' class='option-c' id='dcdy_1307'>1307</option>
+					<option value='1308' class='option-c' id='dcdy_1308'>1308</option>
+					<option value='1309' class='option-c' id='dcdy_1309'>1309</option>
+					<option value='1310' class='option-c' id='dcdy_1310'>1310</option>
+					<option value='1311' class='option-c' id='dcdy_1311'>1311</option>
+					<option value='1312' class='option-c' id='dcdy_1312'>1312</option>
+					<option value='1313' class='option-c' id='dcdy_1313'>1313</option>
+					<option value='1314' class='option-c' id='dcdy_1314'>1314</option>
+					<option value='1315' class='option-c' id='dcdy_1315'>1315</option>
+					<option value='1316' class='option-c' id='dcdy_1316'>1316</option>
+					<option value='1317' class='option-c' id='dcdy_1317'>1317</option>
+					<option value='1318' class='option-c' id='dcdy_1318'>1318</option>
+					<option value='1319' class='option-c' id='dcdy_1319'>1319</option>
+					<option value='1320' class='option-c' id='dcdy_1320'>1320</option>
+					<option value='1321' class='option-c' id='dcdy_1321'>1321</option>
+					<option value='1322' class='option-c' id='dcdy_1322'>1322</option>
+					<option value='1323' class='option-c' id='dcdy_1323'>1323</option>
+					<option value='1324' class='option-c' id='dcdy_1324'>1324</option>
+					<option value='1325' class='option-c' id='dcdy_1325'>1325</option>
+					<option value='1326' class='option-c' id='dcdy_1326'>1326</option>
+					<option value='1327' class='option-c' id='dcdy_1327'>1327</option>
+					<option value='1328' class='option-c' id='dcdy_1328'>1328</option>
+					<option value='1329' class='option-c' id='dcdy_1329'>1329</option>
+					<option value='1330' class='option-c' id='dcdy_1330'>1330</option>
+					<option value='1331' class='option-c' id='dcdy_1331'>1331</option>
+					<option value='1332' class='option-c' id='dcdy_1332'>1332</option>
+					<option value='1333' class='option-c' id='dcdy_1333'>1333</option>
+					<option value='1334' class='option-c' id='dcdy_1334'>1334</option>
+					<option value='1335' class='option-c' id='dcdy_1335'>1335</option>
+					<option value='1336' class='option-c' id='dcdy_1336'>1336</option>
+					<option value='1337' class='option-c' id='dcdy_1337'>1337</option>
+					<option value='1338' class='option-c' id='dcdy_1338'>1338</option>
+					<option value='1339' class='option-c' id='dcdy_1339'>1339</option>
+					<option value='1340' class='option-c' id='dcdy_1340'>1340</option>
+					<option value='1341' class='option-c' id='dcdy_1341'>1341</option>
+					<option value='1342' class='option-c' id='dcdy_1342'>1342</option>
+					<option value='1343' class='option-c' id='dcdy_1343'>1343</option>
+					<option value='1344' class='option-c' id='dcdy_1344'>1344</option>
+					<option value='1345' class='option-c' id='dcdy_1345'>1345</option>
+					<option value='1346' class='option-c' id='dcdy_1346'>1346</option>
+					<option value='1347' class='option-c' id='dcdy_1347'>1347</option>
+					<option value='1348' class='option-c' id='dcdy_1348'>1348</option>
+					<option value='1349' class='option-c' id='dcdy_1349'>1349</option>
+					<option value='1350' class='option-c' id='dcdy_1350'>1350</option>
+					<option value='1351' class='option-c' id='dcdy_1351'>1351</option>
+					<option value='1352' class='option-c' id='dcdy_1352'>1352</option>
+					<option value='1353' class='option-c' id='dcdy_1353'>1353</option>
+					<option value='1354' class='option-c' id='dcdy_1354'>1354</option>
+					<option value='1355' class='option-c' id='dcdy_1355'>1355</option>
+					<option value='1356' class='option-c' id='dcdy_1356'>1356</option>
+					<option value='1357' class='option-c' id='dcdy_1357'>1357</option>
+					<option value='1358' class='option-c' id='dcdy_1358'>1358</option>
+					<option value='1359' class='option-c' id='dcdy_1359'>1359</option>
+					<option value='1360' class='option-c' id='dcdy_1360'>1360</option>
+					<option value='1361' class='option-c' id='dcdy_1361'>1361</option>
+					<option value='1362' class='option-c' id='dcdy_1362'>1362</option>
+					<option value='1363' class='option-c' id='dcdy_1363'>1363</option>
+					<option value='1364' class='option-c' id='dcdy_1364'>1364</option>
+					<option value='1365' class='option-c' id='dcdy_1365'>1365</option>
+					<option value='1366' class='option-c' id='dcdy_1366'>1366</option>
+					<option value='1367' class='option-c' id='dcdy_1367'>1367</option>
+					<option value='1368' class='option-c' id='dcdy_1368'>1368</option>
+					<option value='1369' class='option-c' id='dcdy_1369'>1369</option>
+					<option value='1370' class='option-c' id='dcdy_1370'>1370</option>
+					<option value='1371' class='option-c' id='dcdy_1371'>1371</option>
+					<option value='1372' class='option-c' id='dcdy_1372'>1372</option>
+					<option value='1373' class='option-c' id='dcdy_1373'>1373</option>
+					<option value='1374' class='option-c' id='dcdy_1374'>1374</option>
+					<option value='1375' class='option-c' id='dcdy_1375'>1375</option>
+					<option value='1376' class='option-c' id='dcdy_1376'>1376</option>
+					<option value='1377' class='option-c' id='dcdy_1377'>1377</option>
+					<option value='1378' class='option-c' id='dcdy_1378'>1378</option>
+					<option value='1379' class='option-c' id='dcdy_1379'>1379</option>
+					<option value='1380' class='option-c' id='dcdy_1380'>1380</option>
+					<option value='1381' class='option-c' id='dcdy_1381'>1381</option>
+					<option value='1382' class='option-c' id='dcdy_1382'>1382</option>
+					<option value='1383' class='option-c' id='dcdy_1383'>1383</option>
+					<option value='1384' class='option-c' id='dcdy_1384'>1384</option>
+					<option value='1385' class='option-c' id='dcdy_1385'>1385</option>
+					<option value='1386' class='option-c' id='dcdy_1386'>1386</option>
+					<option value='1387' class='option-c' id='dcdy_1387'>1387</option>
+					<option value='1388' class='option-c' id='dcdy_1388'>1388</option>
+					<option value='1389' class='option-c' id='dcdy_1389'>1389</option>
+					<option value='1390' class='option-c' id='dcdy_1390'>1390</option>
+					<option value='1391' class='option-c' id='dcdy_1391'>1391</option>
+					<option value='1392' class='option-c' id='dcdy_1392'>1392</option>
+					<option value='1393' class='option-c' id='dcdy_1393'>1393</option>
+					<option value='1394' class='option-c' id='dcdy_1394'>1394</option>
+					<option value='1395' class='option-c' id='dcdy_1395'>1395</option>
+					<option value='1396' class='option-c' id='dcdy_1396'>1396</option>
+					<option value='1397' class='option-c' id='dcdy_1397'>1397</option>
+					<option value='1398' class='option-c' id='dcdy_1398'>1398</option>
+					<option value='1399' class='option-c' id='dcdy_1399'>1399</option>
+					<option value='1400' class='option-c' id='dcdy_1400'>1400</option>
+					<option value='1401' class='option-c' id='dcdy_1401'>1401</option>
+					<option value='1402' class='option-c' id='dcdy_1402'>1402</option>
+					<option value='1403' class='option-c' id='dcdy_1403'>1403</option>
+					<option value='1404' class='option-c' id='dcdy_1404'>1404</option>
+					<option value='1405' class='option-c' id='dcdy_1405'>1405</option>
+					<option value='1406' class='option-c' id='dcdy_1406'>1406</option>
+					<option value='1407' class='option-c' id='dcdy_1407'>1407</option>
+					<option value='1408' class='option-c' id='dcdy_1408'>1408</option>
+					<option value='1409' class='option-c' id='dcdy_1409'>1409</option>
+					<option value='1410' class='option-c' id='dcdy_1410'>1410</option>
+					<option value='1411' class='option-c' id='dcdy_1411'>1411</option>
+					<option value='1412' class='option-c' id='dcdy_1412'>1412</option>
+					<option value='1413' class='option-c' id='dcdy_1413'>1413</option>
+					<option value='1414' class='option-c' id='dcdy_1414'>1414</option>
+					<option value='1415' class='option-c' id='dcdy_1415'>1415</option>
+					<option value='1416' class='option-c' id='dcdy_1416'>1416</option>
+					<option value='1417' class='option-c' id='dcdy_1417'>1417</option>
+					<option value='1418' class='option-c' id='dcdy_1418'>1418</option>
+					<option value='1419' class='option-c' id='dcdy_1419'>1419</option>
+					<option value='1420' class='option-c' id='dcdy_1420'>1420</option>
+					<option value='1421' class='option-c' id='dcdy_1421'>1421</option>
+					<option value='1422' class='option-c' id='dcdy_1422'>1422</option>
+					<option value='1423' class='option-c' id='dcdy_1423'>1423</option>
+					<option value='1424' class='option-c' id='dcdy_1424'>1424</option>
+					<option value='1425' class='option-c' id='dcdy_1425'>1425</option>
+					<option value='1426' class='option-c' id='dcdy_1426'>1426</option>
+					<option value='1427' class='option-c' id='dcdy_1427'>1427</option>
+					<option value='1428' class='option-c' id='dcdy_1428'>1428</option>
+					<option value='1429' class='option-c' id='dcdy_1429'>1429</option>
+					<option value='1430' class='option-c' id='dcdy_1430'>1430</option>
+					<option value='1431' class='option-c' id='dcdy_1431'>1431</option>
+					<option value='1432' class='option-c' id='dcdy_1432'>1432</option>
+					<option value='1433' class='option-c' id='dcdy_1433'>1433</option>
+					<option value='1434' class='option-c' id='dcdy_1434'>1434</option>
+					<option value='1435' class='option-c' id='dcdy_1435'>1435</option>
+					<option value='1436' class='option-c' id='dcdy_1436'>1436</option>
+					<option value='1437' class='option-c' id='dcdy_1437'>1437</option>
+					<option value='1438' class='option-c' id='dcdy_1438'>1438</option>
+					<option value='1439' class='option-c' id='dcdy_1439'>1439</option>
+					<option value='1440' class='option-c' id='dcdy_1440'>1440</option>
+					<option value='1441' class='option-c' id='dcdy_1441'>1441</option>
+					<option value='1442' class='option-c' id='dcdy_1442'>1442</option>
+					<option value='1443' class='option-c' id='dcdy_1443'>1443</option>
+					<option value='1444' class='option-c' id='dcdy_1444'>1444</option>
+					<option value='1445' class='option-c' id='dcdy_1445'>1445</option>
+					<option value='1446' class='option-c' id='dcdy_1446'>1446</option>
+					<option value='1447' class='option-c' id='dcdy_1447'>1447</option>
+					<option value='1448' class='option-c' id='dcdy_1448'>1448</option>
+					<option value='1449' class='option-c' id='dcdy_1449'>1449</option>
+					<option value='1450' class='option-c' id='dcdy_1450'>1450</option>
+					<option value='1451' class='option-c' id='dcdy_1451'>1451</option>
+					<option value='1452' class='option-c' id='dcdy_1452'>1452</option>
+					<option value='1453' class='option-c' id='dcdy_1453'>1453</option>
+					<option value='1454' class='option-c' id='dcdy_1454'>1454</option>
+					<option value='1455' class='option-c' id='dcdy_1455'>1455</option>
+					<option value='1456' class='option-c' id='dcdy_1456'>1456</option>
+					<option value='1457' class='option-c' id='dcdy_1457'>1457</option>
+					<option value='1458' class='option-c' id='dcdy_1458'>1458</option>
+					<option value='1459' class='option-c' id='dcdy_1459'>1459</option>
+					<option value='1460' class='option-c' id='dcdy_1460'>1460</option>
+					<option value='1461' class='option-c' id='dcdy_1461'>1461</option>
+					<option value='1462' class='option-c' id='dcdy_1462'>1462</option>
+					<option value='1463' class='option-c' id='dcdy_1463'>1463</option>
+					<option value='1464' class='option-c' id='dcdy_1464'>1464</option>
+					<option value='1465' class='option-c' id='dcdy_1465'>1465</option>
+					<option value='1466' class='option-c' id='dcdy_1466'>1466</option>
+					<option value='1467' class='option-c' id='dcdy_1467'>1467</option>
+					<option value='1468' class='option-c' id='dcdy_1468'>1468</option>
+					<option value='1469' class='option-c' id='dcdy_1469'>1469</option>
+					<option value='1470' class='option-c' id='dcdy_1470'>1470</option>
+					<option value='1471' class='option-c' id='dcdy_1471'>1471</option>
+					<option value='1472' class='option-c' id='dcdy_1472'>1472</option>
+					<option value='1473' class='option-c' id='dcdy_1473'>1473</option>
+					<option value='1474' class='option-c' id='dcdy_1474'>1474</option>
+					<option value='1475' class='option-c' id='dcdy_1475'>1475</option>
+					<option value='1476' class='option-c' id='dcdy_1476'>1476</option>
+					<option value='1477' class='option-c' id='dcdy_1477'>1477</option>
+					<option value='1478' class='option-c' id='dcdy_1478'>1478</option>
+					<option value='1479' class='option-c' id='dcdy_1479'>1479</option>
+					<option value='1480' class='option-c' id='dcdy_1480'>1480</option>
+					<option value='1481' class='option-c' id='dcdy_1481'>1481</option>
+					<option value='1482' class='option-c' id='dcdy_1482'>1482</option>
+					<option value='1483' class='option-c' id='dcdy_1483'>1483</option>
+					<option value='1484' class='option-c' id='dcdy_1484'>1484</option>
+					<option value='1485' class='option-c' id='dcdy_1485'>1485</option>
+					<option value='1486' class='option-c' id='dcdy_1486'>1486</option>
+					<option value='1487' class='option-c' id='dcdy_1487'>1487</option>
+					<option value='1488' class='option-c' id='dcdy_1488'>1488</option>
+					<option value='1489' class='option-c' id='dcdy_1489'>1489</option>
+					<option value='1490' class='option-c' id='dcdy_1490'>1490</option>
+					<option value='1491' class='option-c' id='dcdy_1491'>1491</option>
+					<option value='1492' class='option-c' id='dcdy_1492'>1492</option>
+					<option value='1493' class='option-c' id='dcdy_1493'>1493</option>
+					<option value='1494' class='option-c' id='dcdy_1494'>1494</option>
+					<option value='1495' class='option-c' id='dcdy_1495'>1495</option>
+					<option value='1496' class='option-c' id='dcdy_1496'>1496</option>
+					<option value='1497' class='option-c' id='dcdy_1497'>1497</option>
+					<option value='1498' class='option-c' id='dcdy_1498'>1498</option>
+					<option value='1499' class='option-c' id='dcdy_1499'>1499</option>
+				</select>
+				<select name="debt_clearance_date_month" class="input-c" id="er_cleared_debt_date_month" onchange="valid_date()" tabindex="13">
+					<option value="00" class="option-c" id="dcdm_00">ماه</option>
+					<option value="01" class="option-c" id="dcdm_01">فروردین</option>
+					<option value="02" class="option-c" id="dcdm_02">اردیبهشت</option>
+					<option value="03" class="option-c" id="dcdm_03">خرداد</option>
+					<option value="04" class="option-c" id="dcdm_04">تیر</option>
+					<option value="05" class="option-c" id="dcdm_05">مرداد</option>
+					<option value="06" class="option-c" id="dcdm_06">شهریور</option>
+					<option value="07" class="option-c" id="dcdm_07">مهر</option>
+					<option value="08" class="option-c" id="dcdm_08">آبان</option>
+					<option value="09" class="option-c" id="dcdm_09">آذر</option>
+					<option value="10" class="option-c" id="dcdm_10">دی</option>
+					<option value="11" class="option-c" id="dcdm_11">بهمن</option>
+					<option value="12" class="option-c" id="dcdm_12">اسفند</option>
+				</select>
+				<select name="debt_clearance_date_day" class="input-c" id="er_cleared_debt_date_day" tabindex="14">
+					<option value="00" class="option-c" id="dcdd_00">روز</option>
+					<option value='01' class='option-c' id='dcdd_01'>1</option>
+					<option value='02' class='option-c' id='dcdd_02'>2</option>
+					<option value='03' class='option-c' id='dcdd_03'>3</option>
+					<option value='04' class='option-c' id='dcdd_04'>4</option>
+					<option value='05' class='option-c' id='dcdd_05'>5</option>
+					<option value='06' class='option-c' id='dcdd_06'>6</option>
+					<option value='07' class='option-c' id='dcdd_07'>7</option>
+					<option value='08' class='option-c' id='dcdd_08'>8</option>
+					<option value='09' class='option-c' id='dcdd_09'>9</option>
+					<option value='10' class='option-c' id='dcdd_10'>10</option>
+					<option value='11' class='option-c' id='dcdd_11'>11</option>
+					<option value='12' class='option-c' id='dcdd_12'>12</option>
+					<option value='13' class='option-c' id='dcdd_13'>13</option>
+					<option value='14' class='option-c' id='dcdd_14'>14</option>
+					<option value='15' class='option-c' id='dcdd_15'>15</option>
+					<option value='16' class='option-c' id='dcdd_16'>16</option>
+					<option value='17' class='option-c' id='dcdd_17'>17</option>
+					<option value='18' class='option-c' id='dcdd_18'>18</option>
+					<option value='19' class='option-c' id='dcdd_19'>19</option>
+					<option value='20' class='option-c' id='dcdd_20'>20</option>
+					<option value='21' class='option-c' id='dcdd_21'>21</option>
+					<option value='22' class='option-c' id='dcdd_22'>22</option>
+					<option value='23' class='option-c' id='dcdd_23'>23</option>
+					<option value='24' class='option-c' id='dcdd_24'>24</option>
+					<option value='25' class='option-c' id='dcdd_25'>25</option>
+					<option value='26' class='option-c' id='dcdd_26'>26</option>
+					<option value='27' class='option-c' id='dcdd_27'>27</option>
+					<option value='28' class='option-c' id='dcdd_28'>28</option>
+					<option value='29' class='option-c' id='dcdd_29'>29</option>
+					<option value='30' class='option-c' id='dcdd_30'>30</option>
+					<option value='31' class='option-c' id='dcdd_31'>31</option>
+				</select>
+			</td>
+			<td align="right" style="padding-right: 15px;" valign="top">
+				<label for="debt_clearance_date" class="heading bold heading-c">تاریخ تسویه حساب</label>
+			</td>
+			<td align="left" valign="top">
+				<input id="er_cleared_debt_cb" type="checkbox" name="debt_cleared" class="input-c" style="height: 40%;" value="debt_cleared" onclick="cleared_debt_set()" checked tabindex="11" >
+			</td>
+			<td align="right" valign="top">
+				<label class="heading bold heading-c">آیا بدهی تسویه شده؟</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<input type="submit" value="ثبت" class="btn btn-danger" tabindex="15">
+			</td>
+		</tr>
+	</table>
+</form>
+
+</div></div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="container" style="color:yellow">
+<div class="panel panel-primary" style="background-color:rgb(50,100,200)">
+<div class="panel-heading" style="font-size:30px">ثبت گزارش</div>
+<div class="panel-body">
+
+<div class="row">
+
+<div class="col-xs-12 col-sm-6">
+<div class="panel panel-default" style="height:250px; background-color:rgb(50,150,200); ">
+<div class="panel-heading">جست و جو با کد ملی</div>
+<div class="panel-body">
+
+
+<!-- Panel-1 -->
+
+<form class="form-harizontal" action="/gcin/" method="post">
+	{% csrf_token %}
+
+	<div class="row">
+	<div class="form-group">
+		<label class="col-xs-4 col-sm-3 pull-right control-label" style="text-align:left">کد ملی</label>
+		<div class="col-xs-6 col-sm-6 pull-right">
+			<input type="text" class="form-control text-center" name="customer_id_num" placeholder="کد ملی">
+		</div>
+	</div>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-danger" >جست و جو</button>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Panel-2 -->
+
+<div class="col-xs-12 col-sm-6">
+<div class="panel panel-default" style="background-color:rgb(50,150,200)">
+<div class="panel-heading">جست و جو با نام و فامیل</div>
+<div class="panel-body">
+
+<form class="form-harizontal" action="/gcn/" method="post" >
+	{% csrf_token %}
+
+	<div class="row">
+	<div class="form-group">
+		<label class="col-xs-3 col-sm-3 pull-right control-label " style="text-align:left">نام</label>
+		<div class="col-xs-6 col-sm-6 pull-right">
+			<input type="text" class=" form-control text-center" name="customer_first_name" placeholder="نام">
+		</div>
+	</div>
+	</div>
+
+	<div class="row">
+	<div class="form-group">
+		<label class="col-xs-3 col-sm-3 pull-right control-label" style="text-align:left">فامیل</label>
+		<div class="col-xs-6 col-sm-6 pull-right">
+			<input type="text" class="form-control text-center" name="customer_last_name" placeholder="فامیل">
+		</div>
+	</div>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" id="search-btn" class="btn btn-danger" >جست و جو</button>
+	</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

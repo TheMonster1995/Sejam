@@ -1,0 +1,75 @@
+{% extends 'general_out/general_out.html' %}
+
+{% block primary %}
+
+
+<div class="container">
+<div class="panel panel-primary center-block" style="max-width:550px">
+<div class="panel-heading text-center" style="color:yellow; font-size:50px;">کاربر جدید</div>
+<div class="panel-body" style="background-color:rgb(50,50,200); color:yellow;">
+
+<form class="form-horizontal" action="/signup/" method="post" >
+  {% csrf_token %}
+  <div class="form-group">
+     <label for="name" class="col-xs-3 col-sm-2 pull-right control-label" style="text-align:left">نام</label>
+    <div class="col-xs-10 col-sm-8 pull-right">
+      <input type="text" class="form-control text-center" id="name" data-placement="left" placeholder="نام" name="first_name">
+    </div>
+   </div>
+  
+  <div class="form-group">
+     <label for="lname" class="col-xs-3 col-sm-2 pull-right control-label" style="text-align:left" >فامیل</label>
+    <div class="col-xs-10 col-sm-8 pull-right">
+      <input type="text" class="form-control text-center" id="lname" data-placement="left" placeholder="فامیل" name="last_name">
+    </div>
+   </div>
+
+ <div class="form-group">
+     <label for="Email" class="col-xs-3 col-sm-2 pull-right control-label" style="text-align:left" >ایمیل</label>
+    <div class="col-xs-10 col-sm-8 pull-right">
+      <input type="email" class="form-control text-center" id="Email" data-placement="left" placeholder="ایمیل" name="email">
+    </div>
+   </div>
+
+   <div class="form-group" >
+    <label for="Password" class="col-xs-3 col-sm-2 pull-right control-label" style="text-align:left" >رمز عبور</label>
+    <div class="col-xs-10 col-sm-8 pull-right">
+      <input type="text" class="form-control text-center" id="Password" onkeyup="clearJ()" data-placement="left" placeholder="رمز عبور" name="password">
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="Confirm-Password" class="col-xs-3 col-sm-2 pull-right control-label" style="text-align:left" >تکرار رمز</label>
+    <div class="col-xs-10 col-sm-8 pull-right" >
+      <input type="text" class="form-control text-center" id="Confirm-Password" onchange="testJ()" data-placement="left" placeholder="تکرار رمز" />
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-xs-10 col-xs-pull-0 col-sm-8 col-sm-pull-2 pull-right">
+      <div id="alert" class="alert alert-danger" style="background-color:rgb(200,200,200)"><strong>خطا! </strong>تکرار رمز صحیح نمی باشد</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+        <div class="checkbox center-block">
+        <label>
+          <input type="checkbox" id="check"> <a href="/rules" target="blank"><span style="font-weight:bold">نمایش مقررات</span></a> بخش مقررات سایت را خوانده ام و با آن موافقم<br>
+          <p id="p" style="color:red">تاکید</p>
+        </label>
+      </div>
+    </div>  
+
+
+  <div class="form-group center-block">
+     <button type="submit" name="submit" id="btn" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="مقررات" >ثبت</button>
+  </div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a2e0d060-895b-49af-b5d2-6a6816536af3" name="samanehestelam.com" url="http://samanehestelam.com/">
+        <fileTransfer host="samanehestelam.com" port="22" rootFolder="/home/estelam/estelam" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

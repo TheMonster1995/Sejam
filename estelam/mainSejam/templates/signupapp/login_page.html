@@ -1,0 +1,50 @@
+{% extends 'general_out/general_out.html' %}
+
+{% block primary %}
+
+<div class="container">
+<div class="panel panel-primary center-block" style="max-width:400px; min-width:300px">
+<div class="panel-heading text-cneter" ><font color="yellow" size="50px" >ورود</font></div>
+<div class="panel-body" style="background-color:rgb(50,100,200)">
+
+<form class="form-horizontal" action="/dologin/" method="post">
+	{% csrf_token %}
+
+  <div class="wall">
+  
+  <div class="form-group" >
+    	<label for="Email" class="col-xs-4 col-xs-pull-4 col-sm-3 col-sm-pull-0 pull-right control-label" style="color:yellow; text-align:left;">نام کاربری (ایمیل)<span style="font-size: 1px;">سجام</span></label>
+    <div class="col-xs-9 col-xs-pull-2 col-sm-7 col-sm-pull-0 pull-right" >
+      <input type="text" name="username" class="form-control" id="Email" placeholder="نام کاربری" style="text-align:center;" tabindex="1">
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+      <label for="Password" class="col-xs-4 col-xs-pull-4 col-sm-3 col-sm-pull-0 pull-right control-label" style="color:yellow; text-align:left;">رمز عبور</label>
+    <div class="col-xs-9 col-xs-pull-2 col-sm-7 col-sm-pull-0 pull-right">
+      <input type="password" name="password" class="form-control" id="Password" placeholder="رمز عبور" style="text-align:center;" tabindex="2">
+    </div>
+  </div>
+  
+  </div>
+
+  <div class="row">
+  <div class="form-group">
+    {% if from == 'wrong_login' %}
+    <p class="link-style center-block" style="color: red;">نام کاربری و یا رمز عبور اشتباه است</p>
+	{% endif %}
+  	<button type="submit" class="btn btn-danger" tabindex="3" >ورود</button>
+	<a href="/forgotpass" class="link-style center-block">رمز عبور خود را فراموش کرده ام</a>
+	<a href="/signup" class="link-style center-block">ثبت نام</a>
+  </div>
+  </div>
+
+</form>
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}

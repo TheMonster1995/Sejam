@@ -1,0 +1,58 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+<!-- heading -->
+<div class="list-group center-block" style="max-width:500px">
+{% if from == 'gncn' %}
+<a class="list-group-item active" style="font-size:50px; cursor:default ">آیا منظور شما یکی از موارد زیر است؟</a>
+{% elif from == 'gncin' %}
+<a class="list-group-item active" style="font-size:50px; cursor:default">آیا منظور شما یکی از موارد زیر است؟</a>
+{% else %}
+<a class="list-group-item active" style="font-size:50px; cursor:default">مشتریان یافت شده</a>
+{% endif %}
+
+	<!-- body -->
+
+	{% if from == 'gncn' %}
+		{% for c in users %}
+			{% if c.id_num == 0 %}
+			<a href="/scrii/{{c.id}}" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.state}} {{c.city}}</a>
+			{% else %}
+			<a href="/scrii/{{c.id}}" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.id_num}}</a>
+			{% endif %}
+		{% endfor %}
+	{% elif from == 'gncin' %}
+		{% if c.id_num == 0 %}
+		<a href="/gncift/" class="list-group-item list-group-item-action" >{{users.first_name}} {{users.last_name}} {{users.state}} {{users.city}}</a>
+		{% else %}
+		<a href="/gncift/" class="list-group-item list-group-item-action" >{{users.first_name}} {{users.last_name}} {{users.id_num}}</a>
+		{% endif %}
+	{% elif from == 'gcn' %}
+		{% for c in users %}
+			{% if c.id_num == 0 %}
+			<a href="/rar/{{c.id}}/" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.state}} {{c.city}}</a>
+			{% else %}
+			<a href="/rar/{{c.id}}/" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.id_num}}</a>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		{% for c in users %}
+			{% if c.id_num == 0 %}
+			<a href="/scrii/{{c.id}}" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.state}} {{c.city}}</a></li>
+			{% else %}
+			<a href="/scrii/{{c.id}}" class="list-group-item list-group-item-action" >{{c.first_name}} {{c.last_name}} {{c.id_num}}</a>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+</div>
+
+<br><br>
+{% if from == 'gncn' %}
+<a href="/racni/" class="btn btn-danger" tabindex="100">خیر</a>
+{% elif from == 'gncin' %}
+<a href="/gncin/" class="btn btn-danger" tabindex="100">خیر</a>
+{% else %}
+<a href="/sac/" class="btn btn-danger" tabindex="100">بازگشت</a>
+{% endif %}
+{% endblock %}

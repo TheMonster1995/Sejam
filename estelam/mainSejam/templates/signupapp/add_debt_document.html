@@ -1,0 +1,48 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+<div class="container" style="color:yellow">
+<div class="panel panel-primary center-block" style="max-width:450px;">
+<div class="panel-heading text-center" style="color:yellow; font-size:35px">اضافه کردن سند برای بدهی</div>
+<div class="panel-body" style="background-color:rgb(50,100,200)">
+
+<div class="row">
+<div class="col-xs-12 col-sm-12 pull-right ">
+<ol>
+{% for document in dds %}
+    {% if document.value == 'cheque' or document.value == 'demand_note' %}
+	<li>{{document.name}}</li>
+	{% else %}
+	<li>{{document.name}}<a href="/rdd/{{document.id}}/"><img src="" alt="DD remove link"></a></li>
+	{% endif %}
+{% endfor %}
+</ol>
+</div>
+</div>
+
+<form class="form-harizontal" action="/uprofile/add/" method="post">
+    {% csrf_token %}
+    
+    <div class="row">
+    <div class="form-group" >
+		<label for="dd_name" class="col-xs-3 col-sm-3 col-xs-pull-4	 col-sm-pull-4 pull-right control-label heading bold heading-c">نام سند</label>
+		<div class="col-xs-10 col-sm-10 col-xs-pull-1 col-sm-pull-1 pull-right">
+			<input id="dd_name" type="text" name="dd_name" class="form-control text-center input-c" data-toggle="popover" data-placement="left" placeholder="نام سند" required>
+		</div>
+	</div>
+	</div>
+
+	<div class="row">
+	<div class="form-group">
+		<button type="submit" id="doc-btn" class="btn btn-danger" >تایید</button>
+	</div>
+	</div>
+	
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

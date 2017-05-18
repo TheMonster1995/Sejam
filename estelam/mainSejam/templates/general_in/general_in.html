@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="utf-8">
+	<title>سامانه جامع استعلام مشتری - سجام</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+<!--
+
+Template 2075 Digital Team
+
+http://www.tooplate.com/view/2075-digital-team
+
+-->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/et-line-font.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/nivo_themes/Default/default.css' %}" type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type='text/css'>
+	<link href="{% static 'css/googleapisfonts.css' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/persian-datepicker-0.4.5.css' %}" rel='stylesheet' type='text/css'>
+
+	<style>
+	.home-c {
+  background-size: cover;
+  background-position: center;
+  color: rgb(150, 40, 150);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  text-align: center;
+}
+.home-c h1 {
+  font-size: 40px;
+}
+.home-c h3 {
+  font-size: 14px;
+}
+.home-c hr {
+  width: 240px;
+}
+.home-c .btn {
+  background: transparent;
+  border: 4px solid #ffffff;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 12px 42px;
+  margin-top: 40px;
+  margin-right: 16px;
+  transition: all 0.4s ease-in-out;
+}
+.home-c .btn:hover {
+  background: #00c6d7;
+  border-color: transparent;
+}
+.home-c .btn-danger {
+  background: #00c6d7;
+  border-color: transparent;
+}
+.home-c .btn-danger:hover {
+	border: 4px solid #ffffff;
+  	border-radius: 0;
+	background: transparent;
+  	color: #ffffff;
+}
+.heading-c {
+	color: rgb(255, 255, 0);
+}
+.input-c {
+	color: black;
+	width: 100%;
+	margin-bottom: 10%;
+	padding: 6px 10px;
+	border-radius: 4px;
+}
+.table-cell-c {
+	border: 1px solid black;
+	text-align: center;
+	padding: 0.5%;
+}
+body {
+	font-family: tahoma;
+}
+
+body #buy_section section {
+
+/*  float:center;  */
+  width: 275px;
+  height: 300px;
+  margin: 5px;
+  padding:2px; 
+  border-radius:20px; 
+  display:block;
+  display: inline-block;  
+}
+
+
+body #buy_section section pre {
+  border : none;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: arial;
+
+}
+
+#navigate a{
+	color:white	;
+}
+
+#navigate a:hover{
+	color:yellow	;
+}
+
+#table a{
+
+	color:rgb(200,50,100);
+
+}
+
+.titles {
+	display: inline;
+}
+
+.fa-telegram:before {
+	content : "\f080" ;
+}
+
+
+@media (max-width: 767px)
+{
+	.size-xs
+	{
+		/*min-width:100px;*/
+		max-width:200px;
+	}
+	
+	.align-xs{
+    text-align: center;
+  }
+}
+
+label{
+	color:yellow;
+}
+
+
+@media (min-width: 1200px)
+{
+	input
+	{
+		max-width: 200px;
+	}
+}
+
+.heading-style{
+  font-size:50px;
+  /*color:yellow;*/
+}
+
+
+/*Link Style*/
+.link-style {
+  color:yellow;
+}
+
+.link-style:hover {
+  color:orange;
+}
+
+/*End-Link-Style*/
+
+/*Dropdown*/
+.dropdown:hover{
+  display: block;
+}
+
+.dropdown > .dropdown-toggle{
+  cursor:pointer;
+  text-decoration: none;
+
+}
+
+.dropdown > .dropdown-toggle{
+  overflow: auto;
+}
+.dropdown > .dropdown-menu > li > a{
+  text-align:right;
+  color : rgb(0,0,0);
+}
+
+.dropdown > .dropdown-menu > li > a:hover{
+  color: orange;
+}
+
+/*ProgressBar Style*/
+#progress-text{
+  color:rgba(0,0,0,.6);
+  text-align:center;
+  width:100%;
+  position:absolute;
+  font-weight:bold;
+    background-color:transparent;
+}
+
+.progress:hover{
+    cursor: pointer;
+}
+
+.progress:hover > .progress-bar {
+    background-color: #ff3019;
+}
+
+/*****************/
+
+
+       html,body {
+           position: relative;
+       width: 100%;
+       height:100%;
+       min-height:100%;
+       padding: 0px;
+       margin: 0px;
+        background-color:rgb(50,50,200);
+   }
+
+
+ /*Footer*/
+   footer{
+        width:100%;
+        background-color:rgb(255,255,255);
+        margin-top: 100px;
+        padding-top: 50px;
+   }
+
+ /******/
+
+
+
+</style>
+	
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50" onload="data_set()" >
+
+<!-- preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-circle">
+       <div class="sk-circle1 sk-circle"></div>
+       <div class="sk-circle2 sk-circle"></div>
+       <div class="sk-circle3 sk-circle"></div>
+       <div class="sk-circle4 sk-circle"></div>
+       <div class="sk-circle5 sk-circle"></div>
+       <div class="sk-circle6 sk-circle"></div>
+       <div class="sk-circle7 sk-circle"></div>
+       <div class="sk-circle8 sk-circle"></div>
+       <div class="sk-circle9 sk-circle"></div>
+       <div class="sk-circle10 sk-circle"></div>
+       <div class="sk-circle11 sk-circle"></div>
+       <div class="sk-circle12 sk-circle"></div>
+    </div>
+</div>
+
+<!-- navigation section -->
+<nav class="navbar navbar-static-top navbar-inverse" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target="#bs-OWN-navbar-collapse-1">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="/" class="navbar-brand" style="padding:0; margin:0;" ><img src="{% static 'images/Sejam_Png.png' %}" alt="sejam logo" style="width:50px; display:inline-block; padding:5px 10px 0 0;">سجام</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<!-- <a href="/#about" class="smoothScroll">درباره استعلام</a>
+				<li><a href="/#team" class="smoothScroll">تیم</a></li>
+				<li><a href="#sponsors" class="smoothScroll">حامیان</a></li>
+				<li><a href="/#contact" class="smoothScroll">تماس با ما</a></li>
+				-->
+				<li><a href="/dologout" class="smoothScroll">خروج</a></li>
+				{% if user.is_complete == 0 %}
+				<li>
+          
+        <!-- Progress Bar -->
+         <a href="/uprofile/pci/" class="smoothScroll" >
+          <div class="progress" style="width:130px; position:relative; padding:0px; margin:0px; z-index:0" >
+             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{user.complete_percentage}}%; position:absolute;  z-index:-2 ">
+              </div>
+             <div id="progress-text" style="z-index:-1" >Profile: {{user.complete_percentage}}%</div>
+          </div>
+        </a>
+        </li>
+				{% else %}
+				{% if gb_records != 0 %}
+				<li><a href="/uprofile/" class="smoothScroll">مطالبات معوقه شما: {{user.gone_bad_records}}</a></li>
+				{% endif %}
+				{% endif %}
+				<li><a href="/uprofile" class="smoothScroll">اطلاعات حساب</a></li>
+                <li><a href="/#about" class="smoothScroll">درباره ما</a></li>
+				<li class="dropdown" >
+                    
+            <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              راهنما
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="/#about" style="color: black;">درباره ما</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/#ads" style="color: black;">سجام چیست</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/#rules" style="color: black;">قوانین و تعهدات</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/#team" style="color: black;">تیم سجام</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/#contact" style="color: black;">تماس با ما</a></li>
+            </ul>
+          
+        </li>
+<li class="dropdown" >  
+           <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              خدمات
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><a href="/sac" style="color: black;">جست و جو</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/gcin" style="color: black;">ثبت گزارش</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/gncin" style="color: black;">ثبت مشتری با کد ملی</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/gncn" style="color: black;">ثبت مشتری با نام</a></li>
+              <li role="separator" class="divider"></li>
+            </ul>
+        </li>
+				<li><a href="/#home" class="smoothScroll">خانه</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-- home section -->
+<section class="home-c"  style="background-color: rgb(50, 50, 200);">
+	<div class="container" id="body-con">
+		<div class="row">
+			{% block primary %}{% endblock %}
+		</div>
+	</div>		
+</section>
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<p>Copyright Sejam 2016</p>
+				<hr>
+				<ul class="social-icon">
+					<li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-twitter wow fadeIn" data-wow-delay="0.6s"></a></li>
+					<!-- <li><a href="#" class="fa fa-telegram wow fadeIn" data-wow-delay="0.9s"></a></li> -->
+					<li><a href="#" class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay="0.9s"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="{% static 'js/jquery.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/smoothscroll.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/isotope.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/imagesloaded.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/nivo-lightbox.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/jquery.backstretch.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/wow.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/custom.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/data-integrity.js' %}" type='text/javascript'></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+<script src="{% static 'js/persian-datepicker-0.4.5.min.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/persian-date.js' %}" type='text/javascript'></script>
+<script>
+function data_set(){
+	{% if from == "cip" %}
+		var state = "{{state}}";
+		var city = "{{city}}";
+		var job_category = "{{user.job_category}}";
+		var union = "{{user.union}}";
+        var birthday = "{{ user.birthday|date:'Y/m/d' }}";
+        var birthday_y = parseInt(birthday.slice(0, 4));
+        var birthday_m = parseInt(birthday.slice(5, 7));
+        var birthday_d = parseInt(birthday.slice(8, 10));
+        var bldd = "{{ user.business_license_due_date|date:'Y/m/d' }}";
+        var bldd_y = parseInt(bldd.slice(0, 4));
+        var bldd_m = parseInt(bldd.slice(5, 7));
+        var bldd_d = parseInt(bldd.slice(8, 10));
+		document.getElementById("state_" + state).selected = true;
+		city_set();
+		document.getElementById("city_" + city).selected = true
+        {% if union_other == False %}
+		document.getElementById("union_" + union).selected = true;
+        {% else %}
+        document.getElementById("other_u").selected = true;
+        $('#other_union').prop('style', 'display:inline');
+        $('#other_union').prop('disabled', false);
+        $('#other_union').val(union);
+        {% endif %}
+        second_jc_set();
+        {% if jc_other == False %}
+		document.getElementById("jc_" + job_category).selected = true;
+        {% else %}
+        document.getElementById("other_jc").selected = true;
+        $('#other_job_category').prop('style', 'display:inline');
+        $('#other_job_category').prop('disabled', false);
+        $('#other_job_category').val(job_category);
+        {% endif %}
+        $("#birthday").pDatepicker("setDate", [birthday_y, birthday_m, birthday_d]);
+        $("#bldd").pDatepicker("setDate", [bldd_y, bldd_m, bldd_d]);
+	{% elif from == "ear" %}
+		var register_date = "{{record.register_date|date:'d/m/Y'}}";
+		var start_date = "{{record.debt_start_date|date:'d/m/Y'}}";
+		var due_date = "{{record.debt_due_date|date:'d/m/Y'}}";
+		var clearance_date = "{{record.debt_clearance_date|date:'d/m/Y'}}";
+		document.getElementById("rrdd_" + register_date.slice(0, 2)).selected = true;
+		document.getElementById("rrdm_" + register_date.slice(3, 5)).selected = true;
+		document.getElementById("rrdy_" + register_date.slice(6, 10)).selected = true;
+		document.getElementById("dsdd_" + start_date.slice(0, 2)).selected = true;
+		document.getElementById("dsdm_" + start_date.slice(3, 5)).selected = true;
+		document.getElementById("dsdy_" + start_date.slice(6, 10)).selected = true;
+		document.getElementById("dddd_" + due_date.slice(0, 2)).selected = true;
+		document.getElementById("dddm_" + due_date.slice(3, 5)).selected = true;
+		document.getElementById("dddy_" + due_date.slice(6, 10)).selected = true;
+		if (clearance_date.slice(6, 10) == '1111') {
+			document.getElementById("dcdd_00").selected = true;
+			document.getElementById("dcdm_00").selected = true;
+			document.getElementById("dcdy_0000").selected = true;
+		} else {
+			document.getElementById("dcdd_" + clearance_date.slice(0, 2)).selected = true;
+			document.getElementById("dcdm_" + clearance_date.slice(3, 5)).selected = true;
+			document.getElementById("dcdy_" + clearance_date.slice(6, 10)).selected = true;
+		};
+	{% elif from == "rarwi" %}
+		var today = "{{today}}";
+		document.getElementById("dsdy_" + today.slice(0, 4)).selected = true;
+		document.getElementById("dsdm_" + today.slice(5, 7)).selected = true;
+		document.getElementById("dsdd_" + today.slice(8, 10)).selected = true;
+		document.getElementById("dddy_" + today.slice(0, 4)).selected = true;
+		document.getElementById("dddm_" + today.slice(5, 7)).selected = true;
+		document.getElementById("dddd_" + today.slice(8, 10)).selected = true;
+		document.getElementById("rrdy_" + today.slice(0, 4)).selected = true;
+		document.getElementById("rrdm_" + today.slice(5, 7)).selected = true;
+		document.getElementById("rrdd_" + today.slice(8, 10)).selected = true;
+	{% endif %}
+};
+
+function cleared_debt_set() {
+	if (document.getElementById("er_cleared_debt_cb").checked) {
+		var clearance_date = "{{record.det_clearance_date}}";
+		document.getElementById("er_cleared_debt_date_day").disabled = false;
+		document.getElementById("er_cleared_debt_date_month").disabled = false;
+		document.getElementById("er_cleared_debt_date_year").disabled = false;
+		if (clearance_date.slice(6, 10) == '1111') {
+			document.getElementById("dcdd_00").selected = true;
+			document.getElementById("dcdm_00").selected = true;
+			document.getElementById("dcdy_0000").selected = true;
+		} else {
+			document.getElementById("dcdd_" + clearance_date.slice(0, 2)).selected = true;
+			document.getElementById("dcdm_" + clearance_date.slice(3, 5)).selected = true;
+			document.getElementById("dcdy_" + clearance_date.slice(6, 10)).selected = true;
+		};
+	}else {
+		document.getElementById("er_cleared_debt_date_day").disabled = true;
+		document.getElementById("dcdy_0000").selected = true;
+		document.getElementById("er_cleared_debt_date_month").disabled = true;
+		document.getElementById("dcdm_00").selected = true;
+		document.getElementById("er_cleared_debt_date_year").disabled = true;
+		document.getElementById("dcdd_00").selected = true;
+	};
+};
+
+function valid_date() {
+	{% if from == "cip" %}
+		if (parseInt(document.getElementById("birthday_m").value) >= 7) {
+			document.getElementById("bd_31").disabled = true;
+			document.getElementById("bd_30").selected = true;
+		} else {
+			document.getElementById("bd_31").disabled = false;
+		};
+		if (parseInt(document.getElementById("blddm").value) >= 7) {
+			document.getElementById("blddd_31").disabled = true;
+			document.getElementById("blddd_30").selected = true;
+		} else {
+			document.getElementById("blddd_31").disabled = false;
+		};
+	{% elif from == "ear" %}
+		if (parseInt(document.getElementById("dddm").value) >= 7) {
+			document.getElementById("dddd_31").disabled = true;
+			document.getElementById("dddd_30").selected = true;
+		} else {
+			document.getElementById("dddd_31").disabled = false;
+		};
+		if (parseInt(document.getElementById("dsdm").value) >= 7) {
+			document.getElementById("dsdd_31").disabled = true;
+			document.getElementById("dddd_30").selected = true;
+		} else {
+			document.getElementById("dsdd_31").disabled = false;
+		};
+		if (parseInt(document.getElementById("er_cleared_debt_date_month").value) >= 7) {
+			document.getElementById("dcdd_31").disabled = true;
+			document.getElementById("dcdd_30").selected = true;
+		} else {
+			document.getElementById("dcdd_31").disabled = false;
+		};
+	{% elif from == "rar" %}
+		if (parseInt(document.getElementById("dddm").value) >= 7) {
+			document.getElementById("dddd_31").disabled = true;
+			document.getElementById("dddd_30").selected = true;
+		} else {
+			document.getElementById("dddd_31").disabled = false;
+		};
+		if (parseInt(document.getElementById("dsdm").value) >= 7) {
+			document.getElementById("dsdd_31").disabled = true;
+			document.getElementById("dddd_30").selected = true;
+		} else {
+			document.getElementById("dsdd_31").disabled = false;
+		};
+	{% endif %}
+}
+
+function job_category_set() {
+	if (document.getElementById("job_category").value == "other"){
+		document.getElementById("other_job_category").disabled = false;
+	} else {
+		document.getElementById("other_job_category").disabled = true;
+	};
+};
+
+function second_jc_set() {
+    var jc_tag = document.getElementById("job_category");
+    var union_value = document.getElementById("union").value;
+    if (union_value != "") {
+        {% for jc in jobcategories %}
+            if ("{{ jc.relation.value }}" == union_value) {
+                var option = document.createElement("option");
+                option.value = "{{ jc.name }}";
+                option.class = "input-c";
+                option.text = "{{ jc.name }}";
+                option.id = "jc_{{ jc.value }}";
+                jc_tag.add(option);
+            } else {
+            };
+        {% endfor %}
+        var option2 = document.createElement("option");
+        option2.value = "other";
+        option2.class = "input-c";
+        option2.text = "دیگر";
+        option2.id = "other_jc";
+        jc_tag.add(option2);
+        document.getElementById("other_job_category").disabled = true;
+    } else {
+        document.getElementById("other_job_category").disabled = true;
+    };
+};
+
+function clear_jc() {
+	var len = document.getElementById("job_category").options.length;
+	for (i = (len-1); i > 0; i--) {
+		document.getElementById("job_category").remove(i);
+	};
+};
+
+function union_set() {
+	if (document.getElementById("union").value == "other"){
+		document.getElementById("other_union").disabled = false;
+	} else {
+		document.getElementById("other_union").disabled = true;
+	};
+};
+
+function city_set() {
+	var city_tag = document.getElementById("city");
+	var state_value = document.getElementById("state").value;
+	if (state_value != "") {
+		{% for city in cities %}
+		if ("{{city.relation.name}}" == state_value) {
+			var option = document.createElement("option");
+			option.value = "{{city.name}}";
+			option.class = "input-c";
+			option.text = "{{city.name}}";
+			option.id = "city_{{city.value}}";
+			city_tag.add(option);
+		} else {};
+		{% endfor %}
+	} else {
+		var option = document.createElement("option");
+		option.value = "";
+		option.class = "input-c";
+		option.text = "شهرستان";
+		city_tag.add(option);
+	};
+};
+
+function clear_city() {
+	var len = document.getElementById("city").options.length;
+	for (i = (len-1); i > 0; i--) {
+		document.getElementById("city").remove(i);
+	};
+};
+
+
+//////////////////////////
+
+		/*
+         observer
+         */
+        $(".observer").persianDatepicker({
+            altField: '#observerAlt',
+            altFormat: "YYYY MM DD HH:mm:ss",
+            observer: true,
+            format: 'YYYY/MM/DD' 
+        });
+{#        $(".observer").pDatepicker("setDate",[1384,1,3]);#}
+        $(".observer").prop("readonly",true);
+        $(".observer").prop("style","cursor:pointer");
+        $(".observer").prop("style","background-color: rgb(255,255,255)");
+///////////////////////////
+
+
+function addStart(){
+	
+	var str = $("#job").val();
+	var pattern = /^\b\b$/i;
+	
+	if( !pattern.test(str) ){
+		$("#jobselect").append("<option>"+str+"</option>");
+		$("#job").hide();
+	}
+		$("#job").hide();
+
+}
+
+function addShow(){
+	$("#job").show();
+	$("#job").focus();
+}
+
+
+////////////Code/////////////
+
+
+function code_invalid(id){
+    var val = $("#"+id).val();
+    var pattern = /^\b[1-9][0-9]{9}\b$/i;
+    var div = $("#"+id).closest("div");
+
+    if(!pattern.test(val)){
+        div.addClass("has-error");
+        $("#"+id).addClass("error");
+        $("#"+id).attr("data-content",'تاریخ صحیح نیست');
+        $("#"+id).popover('show');
+        return false;
+    }
+        div.removeClass("has-error");
+        $("#"+id).removeClass("error");
+        $("#"+id).popover('hide');
+        return true;       
+}
+
+
+
+function bank_invalid(id){
+    var val = $("#"+id).val();
+    var pattern = /^\b[0-9]\b$/i;
+    var div = $("#"+id).closest("div");
+
+    if(!pattern.test(val)){
+        div.addClass("has-error");
+        $("#"+id).addClass("error");
+        $("#"+id).attr("data-content",'شماره وارد نمایید');
+        $("#"+id).popover('show');
+        return false;
+    }
+        div.removeClass("has-error");
+        $("#"+id).removeClass("error");
+        $("#"+id).popover('hide');
+        return true;       
+}
+
+
+
+function empty(id){
+    var val = $("#"+id).val();
+    // var pattern = /$/i;
+    var div = $("#"+id).closest("div");
+
+    // if(!pattern.test(val)){
+    if( $("#"+id).val()==="" || $("#"+id).val()===null ){
+        div.addClass("has-error");
+        $("#"+id).addClass("error");
+        $("#"+id).attr("data-content",'وارد نشده');
+        $("#"+id).popover('show');
+        $("#"+id).focus();
+        return false;
+    }
+        div.removeClass("has-error");
+        $("#"+id).removeClass("error");
+        $("#"+id).popover('hide');
+        return true;       
+}
+
+
+
+
+
+
+
+/////////////////////////////
+
+
+/*function notEmpty (clss){
+	var val = $('.'+clss).val();
+	var pattern = /^(?:\s?\.?)[a-z]+$/i;
+	if(!pattern.test(val))
+	{
+		// alert("this must not fill .");
+		// $('.'+clss).val('ERRoR');
+		$('.'+clss).addClass("error");
+		$("#edit-profile-btn").prop("disabled",true);
+		// $('.'+clss).prop("readonly", true);
+	}else
+	{
+		$("#edit-profile-btn").prop("disabled",false);
+		$('.'+clss).removeClass("error");
+	}
+} */
+
+
+// --for--- ci_profile_page -- select_input--
+{#function showInput(id){#}
+{#    if($("select").val() == "other" ){#}
+{#        $("#"+id).val("");#}
+{#        $("#"+id).prop("hidden",false);#}
+{#        $("#"+id).focus();#}
+{#    } else {#}
+{#        $("#"+id).prop("hidden",true);#}
+{#    }#}
+// }
+//------------------------------------------
+        
+$(document).ready(function(){
+
+
+    //---- keep footer at bottom —---------------------—
+    $(window).load(function () {
+
+        if ($(window).height() > $("#body-con").height()+200)
+            $("footer").prop("style", "position:fixed; bottom:0;");
+        else
+            $("footer").prop("style", "");
+    });
+
+    $(window).resize(function () {
+
+        if ($(window).height() > $("#body-con").height()+200)
+            $("footer").prop("style", "position:fixed; bottom:0;");
+        else
+            $("footer").prop("style", "");
+    });
+    //---------------------------------------------------
+
+
+
+
+
+
+    $("#job").hide();
+
+	$("#jobselect").change(function(){
+		
+		if( $("#jobselect").val() == "other" )
+			addShow();
+	});
+
+	$("#gcin-btn").click(function(){
+		
+		if(!code_invalid("code"))
+			return false;
+		
+		if(!empty("dd_name"))
+			return false;
+		
+		$("#gcin-btn").submit();
+	});
+
+	$("#doc-btn").click(function(){
+				
+		if(!empty("dd_name"))
+			return false;
+		
+		$("#doc-btn").submit();
+	});
+
+	$("#bank-btn").click(function(){
+				
+		if(!empty("bank_name"))
+			return false;
+
+		if(!empty("branch_name"))
+			return false;
+
+		if(!empty("branch_code"))
+			return false;
+
+		if(!bank_invalid("account_num"))
+			return false;
+
+		if(!bank_invalid("card_num"))
+			return false;
+
+		if(!bank_invalid("shaba_num"))
+			return false;
+
+		
+		$("#bank-btn").submit();
+	});
+	
+
+
+
+
+	// $(".notempty").attr("onchange","notEmpty('notempty')");
+
+	$("#edit-profile-btn").click(function(){
+
+		if(!notEmpty("notempty"))
+			return false;
+
+
+		$("#edit-profile-btn").submit();
+	});
+
+    // getDateToday
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    }
+
+    if(mm<10) {
+        mm='0'+mm
+    }
+
+    today = mm+'/'+dd+'/'+yyyy;
+{#    document.write(today);#}
+    $('.datetoday').val(today);
+
+
+});
+
+
+
+// dropdown hoverable
+$('ul.nav li.dropdown').hover(function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(0);
+}, function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(0);
+});
+
+
+</script>
+
+</body>
+</html>

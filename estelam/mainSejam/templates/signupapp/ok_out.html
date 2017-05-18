@@ -1,0 +1,55 @@
+{% extends 'general_out/general_out.html' %}
+
+{% block primary %}
+
+
+<!-- Sign In Error page -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-push-3">
+            <pre class="alert alert-danger alert-lg" dir="rtl">{{message}}</pre>
+        </div>
+    </div>
+
+<div class="row">
+{% if from == 'signup_page' %}
+    <a href="/" class="btn btn-danger" tabindex="1" tabindex="1">بازگشت</a>
+{% elif from == 'failed_signup_page' %}
+    <a href="/signup" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'nomail_certify_a_user' %}
+    <a href="/signup" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'certify_a_user' %}
+    <a href="/signup" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_certify_a_user' %}
+    <a href="/signup" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'activate_a_user' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_activate_a_user' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'not_activated_user_login' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'wrong_user_pass_login' %}
+    <a href="/dologin" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'not_sent_forgor_pass' %}
+    <a href="/forgotpass" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'forgot_pass' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'new_pass' %}
+    <a href="/dologin" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'failed_new_pass' %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% elif from == 'activate_an_acount' %}
+    <a href="/dologin" class="btn btn-danger" tabindex="1">ورود</a>
+{% elif from == 'activate_an_email' %}
+    <a href="/dologin" class="btn btn-danger" tabindex="1">ورود</a>
+{% else %}
+    <a href="/" class="btn btn-danger" tabindex="1">بازگشت</a>
+{% endif %}
+
+
+</div>
+</div>
+
+{% endblock %}
+

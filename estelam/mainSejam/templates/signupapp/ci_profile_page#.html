@@ -1,0 +1,304 @@
+{% extends 'general_in/general_in.html' %}
+
+{% block primary %}
+
+
+	<div class="container">
+	<div class="panel panel-primary center-block" style="max-width:750px">
+	<div class="panel-heading heading-style " >تکمیل اطلاعات حساب کاربری</div>
+	<div class="panel-body" style="background-color:rgb(50,100,200)">
+
+		<form class="form-horizontal" action="/uprofile/cip/" method="post" >
+        {% csrf_token %}
+        {% if ef == 'false' %}
+    	<div class="row">
+
+			<div class="wall col-sm-5 col-sm-push-7" align="left">
+
+				<div class="form-inline align-xs form-group" dir="rtl" >
+					<label for="username" class="control-label" >نام کاربری</label>
+					<input type="text" name="username" value="{{user.username}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl" >
+					<label for="father_name" class="control-label" >نام پدر</label>
+					<input type="text" name="father_name" value="{{user.father_name}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="id_num" class="control-label" >شماره ملی</label>
+					<input type="text" name="id_num" value="{{user.id_num}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="gender" class="control-label" >جنسیت</label>
+					<select name="gender" style="width:60%" class="form-control center-block size-xs">
+                        <option value="male" selected>مرد</option>
+                        <option value="female">زن</option>
+                    </select>
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="birthday" class="control-label" >تاریخ تولد</label>
+					<input type="text" name="birthday"  class="form-control center-block size-xs observer" readonly>
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="fax" class="control-label" >فکس</label>
+					<input type="text" name="fax" value="{{user.fax}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="phone" class="control-label" >تلفن ثابت</label>
+					<input type="text" name="phone" value="{{user.mobile}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="mobile" class="control-label" >تلفن همراه</label>
+					<input type="text" name="mobile" value="{{user.mobile}}" class="form-control center-block size-xs" >
+				</div>
+
+
+			</div>
+
+
+
+		<div class="clearfix visible-xs-block"></div>
+
+
+			<div class="wall col-sm-6 col-sm-pull-4" style="padding-left:10px" align="left" >
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="secondary_email" class="control-label" >ایمیل دوم</label>
+					<input type="email" name="secondary_email" value="{{user.secondary_email}}" class="form-control center-block size-xs" >
+				</div>
+
+    			<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="brand" class="control-label" >نام تجاری</label>
+					<input type="text" name="brand" value="{{user.brand}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="business_license_due_date" class="control-label" >تاریخ‌اعتبار‌پروانه‌کسب</label>
+					<input type="text" name="business_license_due_date"  class="form-control center-block size-xs observer" readonly>
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="business_license_num" class="control-label" >شماره‌جواز‌کسب</label>
+					<input type="text" name="business_license_num" value="{{user.business_license_num}}" class="form-control center-block size-xs" >
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="address" class="control-label" >آدرس‌محل‌کسب</label>
+
+				    <select name="state" id="state" class="form-control center-block size-xs" style="width:25%;" onchange="clear_city(); city_set();">
+					   <option value="" class="input-c" selected>استان</option>
+					   {% for state in states %}
+					   <option value="{{state.name}}" class="input-c" id="state_{{state.value}}">{{state.name}}</option>
+					   {% endfor %}
+                    </select>
+
+                    <select name="city" id="city" class="form-control center-block size-xs" style="width:25%;">
+					   <option class="input-c" value="" selected>شهرستان</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group form-inline align-xs dropdown" dir="rtl">
+					<label for="job_category" class="control-label" >رسته شغلی</label>
+                    <!---->
+					<input type="text" name="other_job_category" id="other_job_category" oninvalid="this.setCustomValidity('لطفا رسته شغلی را وارد کنید')" class="form-control center-block size-xs" style="display:none" value="{{job_category}}" required >
+                    <!---->
+					<select name="job_category" id="job_category" onchange="javascript:if( document.getElementById('job_category').value == 'دیگر' ){document.getElementById('other_job_category').style.display='block';}else{document.getElementById('other_job_category').style.display='none';}" class="form-control center-block size-xs" onchange="job_category_set()" style="width:50%">
+						<option value="" class="input-c">...</option>
+<!--						{% for jc in jobcategories %}
+						<option value="{{ jc.value }}" class="input-c" id="jc_{{jc.value}}">{{ jc.name }}</option>
+						{% endfor %}
+						<option value="other" class="input-c">دیگر</option> -->
+					</select>
+				</div>
+
+                <div class="form-group form-inline align-xs dropdown" dir="rtl">
+					<label for="union" class="control-label" >اتحادیه</label>
+                    <!---->
+					<input type="text" name="other_union" id="other_union" oninvalid="this.setCustomValidity('لطفا اتحادیه را وارد کنید')" class="form-control center-block size-xs" style="display:none" value="{{unoin}}" required >
+                    <!---->
+					<select name="union" id="union" onchange="javascript:if( document.getElementById('union').value === 'دیگر' ){$('#other_union').attr('style','display:block');}else{$('#other_union').attr('style','display:none');}" class="form-control center-block size-xs" onchange="union_set()" style="width:50%">
+						<option value="" class="input-c">...</option>
+						{% for u in unions %}
+						<option value="{{ u.value }}" class="input-c" id="union_{{u.value}}">{{ u.name }}</option>
+						{% endfor %}
+						<option value="other" class="input-c">دیگر</option>
+					</select>
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="about" class="control-label" >ملاحظات</label>
+					<input type="text" name="about" value="{{user.about}}" class="form-control center-block size-xs" >
+				</div>
+
+		  </div>
+
+    </div>
+
+ 	<div class="row">
+		<div class="form-group">
+			<button class="btn btn-danger" type="submit" >ثبت</button>
+		</div>
+	</div>
+{% else %}
+        	<div class="row">
+
+			<div class="wall col-sm-6 col-sm-push-6" align="left">
+
+				<div class="form-inline align-xs form-group" dir="rtl" >
+					<label for="username" class="control-label" >نام کاربری</label>
+					<input type="text" name="username" value="{{pt.username}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl" >
+					<label for="father_name" class="control-label" >نام پدر</label>
+					<input type="text" name="father_name" value="{{pt.father_name}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="id_num" class="control-label" >شماره ملی</label>
+					<input type="text" name="id_num" value="{{pt.id_num}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="gender" class="control-label" >جنسیت</label>
+					<select name="gender" class="form-control center-block size-xs">
+                        <option value="male" selected>مرد</option>
+                        <option value="female">زن</option>
+                    </select>
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="birthday" class="control-label" >تاریخ تولد</label>
+					<input type="text" name="birthday"  class="form-control center-block size-xs observer" readonly>
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="fax" class="control-label" >فکس</label>
+					<input type="text" name="fax" value="{{pt.fax}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="phone" class="control-label" >تلفن ثابت</label>
+					<input type="text" name="phone" value="{{pt.mobile}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="mobile" class="control-label" >تلفن همراه</label>
+					<input type="text" name="mobile" value="{{pt.mobile}}" class="form-control center-block size-xs" >
+				</div>
+
+
+			</div>
+
+
+
+		<div class="clearfix visible-xs-block"></div>
+
+
+			<div class="wall col-sm-6 col-sm-pull-6" style="padding-left:10px" align="left" >
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="secondary_email" class="control-label" >ایمیل دوم</label>
+					<input type="email" name="secondary_email" value="{{pt.secondary_email}}" class="form-control center-block size-xs" >
+				</div>
+
+    			<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="brand" class="control-label" >نام تجاری</label>
+					<input type="text" name="brand" value="{{pt.brand}}" class="form-control center-block size-xs" >
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="business_license_due_date" class="control-label" >تاریخ‌اعتبار‌پروانه‌کسب</label>
+					<input type="text" name="business_license_due_date"  class="form-control center-block size-xs observer" readonly>
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="business_license_num" class="control-label" >شماره‌جواز‌کسب</label>
+					<input type="text" name="business_license_num" value="{{pt.business_license_num}}" class="form-control center-block size-xs" >
+				</div>
+
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="address" class="control-label" >آدرس‌محل‌کسب</label>
+
+				    <select name="state" id="state" class="form-control center-block size-xs" style="width: 25%;" onchange="clear_city(); city_set();">
+					   <option value="" class="input-c" selected>استان</option>
+					   {% for state in states %}
+					   <option value="{{state.name}}" class="input-c" id="state_{{state.value}}">{{state.name}}</option>
+					   {% endfor %}
+                    </select>
+
+                    <select name="city" id="city" class="form-control center-block size-xs" style="width: 25%;">
+					   <option class="input-c" value="" selected>شهرستان</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group form-inline align-xs dropdown" dir="rtl">
+					<label for="job_category" class="control-label" >رسته شغلی</label>
+                    <!---->
+					<input type="text" name="other_job_category" id="other_job_category" oninvalid="this.setCustomValidity('لطفا رسته شغلی را وارد کنید')" class="form-control center-block size-xs" style="display:none" value="{{job_category}}" required >
+                    <!---->
+					<select name="job_category" id="job_category" onchange="javascript:if( document.getElementById('job_category').value === 'دیگر' ){$('#other_job_category').attr('style','display:block');}else{$('#other_job_category').attr('style','display:none');}" class="form-control center-block size-xs" style="width:50%">
+						<option value="" class="input-c">...</option>
+<!-- 						{% for jc in jobcategories %}
+						<option value="{{ jc.value }}" class="input-c" id="jc_{{jc.value}}">{{ jc.name }}</option>
+						{% endfor %} -->
+						<option value="other" class="input-c" id="other_jc">دیگر</option>
+					</select>
+				</div>
+
+                <div class="form-group form-inline align-xs dropdown" dir="rtl">
+					<label for="union" class="control-label" >اتحادیه</label>
+                    <!---->
+					<input type="text" name="other_union" id="other_union" oninvalid="this.setCustomValidity('لطفا اتحادیه را وارد کنید')" class="form-control center-block size-xs" style="display:none" value="{{unoin}}" required >
+                    <!---->
+					<select name="union" id="union" onchange="javascript:if( document.getElementById('union').value === 'دیگر' ){$('#other_union').attr('style','display:block');}else{$('#other_union').attr('style','display:none');}" class="form-control center-block size-xs" onchange="clear_jc(); second_jc_set();" style="width:50%">
+						<option value="" class="input-c">...</option>
+						{% for u in unions %}
+						<option value="{{ u.value }}" class="input-c" id="union_{{u.value}}">{{ u.name }}</option>
+						{% endfor %}
+						<option value="other" class="input-c" id="other_u">دیگر</option>
+					</select>
+				</div>
+
+				<div class="form-group form-inline align-xs" dir="rtl">
+					<label for="about" class="control-label" >ملاحظات</label>
+					<input type="text" name="about" value="{{pt.about}}" class="form-control center-block size-xs" >
+				</div>
+
+		  </div>
+
+    </div>
+
+ 	<div class="row">
+		<div class="form-group">
+			<button class="btn btn-danger" type="submit" >ثبت</button>
+		</div>
+	</div>
+
+{% endif %}
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
