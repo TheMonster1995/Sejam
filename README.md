@@ -7,3 +7,5 @@ We used Python/Django for Server, MySQL as database, and HTML5, CSS, and JS for 
 Unfortunately, the website was online only for two months. It ran into some legal problems and we had to shut it down. What you see here is the latest version which was running on the server.
 
 If you want to run it on a local server in your own system, you're gonna have to change the database settings either to a simple sqlite DB, or have a MySQL server running and put the username and password in the settings.
+
+P.S The project was originally called "Estelam", so the project name is that, but the app's name is Sejam or "mainSejam" which was the name we later chose for it.
